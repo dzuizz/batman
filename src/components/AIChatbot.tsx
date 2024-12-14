@@ -6,6 +6,81 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import OpenAI from 'openai';
 import { v4 as uuidv4 } from 'uuid';
+import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
+
+// Add this interface after the existing interfaces
+interface TTSConfig {
+    subscriptionKey: string;
+    region: string;
+}
+
+const detectLanguage = (text: string): 'id' | 'en' => {
+    // Common Indonesian words
+    const idWords = ['yang', 'di', 'ke', 'dari', 'pada', 'dalam', 'untuk', 'dengan', 'dan', 'atau', 'ini', 'itu', 'juga', 'sudah', 'saya', 'anda', 'dia', 'mereka', 'kita', 'akan', 'bisa', 'ada', 'tidak', 'saat', 'oleh', 'setelah', 'para', 'seperti', 'bagi', 'serta'];
+
+    const words = text.toLowerCase().split(/\s+/);
+    const idWordCount = words.filter(word => idWords.includes(word)).length;
+
+    return idWordCount > 0 ? 'id' : 'en';
+};
+
+// Add this class before the AIChatbot component
+class BilingualTTS {
+    private speechConfig: sdk.SpeechConfig;
+    private voices: {
+        id: { female: string; male: string };
+        en: { female: string; male: string };
+    };
+
+    constructor(config: TTSConfig) {
+        this.speechConfig = sdk.SpeechConfig.fromSubscription(
+            config.subscriptionKey,
+            config.region
+        );
+
+        this.voices = {
+            id: {
+                female: 'id-ID-GadisNeural',
+                male: 'id-ID-ArdiNeural'
+            },
+            en: {
+                female: 'en-US-JennyNeural',
+                male: 'en-US-GuyNeural'
+            }
+        };
+    }
+
+    async speak(text: string, preferredGender: 'female' | 'male' = 'female'): Promise<void> {
+        try {
+            const detectedLang = await this.detectLanguage(text);
+            const voice = this.voices[detectedLang][preferredGender];
+            this.speechConfig.speechSynthesisVoiceName = voice;
+
+            const synthesizer = new sdk.SpeechSynthesizer(this.speechConfig);
+
+            return new Promise((resolve, reject) => {
+                synthesizer.speakTextAsync(
+                    text,
+                    result => {
+                        synthesizer.close();
+                        resolve();
+                    },
+                    error => {
+                        synthesizer.close();
+                        reject(error);
+                    }
+                );
+            });
+        } catch (error) {
+            console.error('TTS Error:', error);
+            throw error;
+        }
+    }
+
+    private async detectLanguage(text: string): Promise<'id' | 'en'> {
+        return detectLanguage(text);
+    }
+}
 
 // Initialize OpenAI client
 const openai = new OpenAI({
@@ -33,7 +108,10 @@ export const AIChatbot = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [location, setLocation] = useState<GeoLocation | null>(null);
     const [sessionId, setSessionId] = useState<string>('');
-
+    const [tts] = useState(() => new BilingualTTS({
+        subscriptionKey: process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY || '',
+        region: process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION || ''
+    }));
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -87,16 +165,12 @@ export const AIChatbot = () => {
         }
     }, [messages, sessionId]);
 
-    const speakResponse = (text: string) => {
-        // Cancel any ongoing speech
-        window.speechSynthesis.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(text);
-        // Set to Indonesian language
-        utterance.lang = 'id-ID';
-        // Adjust speech rate slightly slower for better clarity
-        utterance.rate = 0.9;
-        window.speechSynthesis.speak(utterance);
+    const speakResponse = async (text: string) => {
+        try {
+            await tts.speak(text);
+        } catch (error) {
+            console.error('Failed to speak response:', error);
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
