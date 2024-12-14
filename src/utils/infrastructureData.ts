@@ -1,6 +1,6 @@
-import roadsData from '@/data/infrastructure/roads.json';
-import waterData from '@/data/infrastructure/water.json';
-import powerData from '@/data/infrastructure/power.json';
+import roadsData from '@/../public/data/infrastructure/roads.json';
+import waterData from '@/../public/data/infrastructure/water.json';
+import powerData from '@/../public/data/infrastructure/power.json';
 
 export type InfrastructureType = 'roads' | 'water' | 'power';
 

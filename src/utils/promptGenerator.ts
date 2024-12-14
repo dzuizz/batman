@@ -1,7 +1,5 @@
-import roadsData from '@/data/infrastructure/roads.json';
-import waterData from '@/data/infrastructure/water.json';
-import powerData from '@/data/infrastructure/power.json';
 import { INFRASTRUCTURE_PROMPT } from '@/config/prompts';
+import { getNearbyInfrastructure } from './infrastructureData';
 
 interface InfrastructureStatus {
     type: string;
@@ -34,14 +32,10 @@ function isNearby(latitude: number, longitude: number, infraLat: number, infraLo
 export function generateInfrastructurePrompt(latitude: number, longitude: number, userQuestion: string): string {
     const infrastructureStatuses: InfrastructureStatus[] = [];
 
-    // Process Roads (only if coordinates are within range)
-    roadsData.roads.major_highways
-        .filter(highway =>
-            highway.coordinates.some(coord =>
-                isNearby(latitude, longitude, coord.lat, coord.lng)
-            )
-        )
-        .forEach(highway => {
+    // Process Roads
+    const nearbyRoads = getNearbyInfrastructure('roads', latitude, longitude);
+    if (nearbyRoads?.major_highways) {
+        nearbyRoads.major_highways.forEach(highway => {
             infrastructureStatuses.push({
                 type: 'Highway',
                 name: highway.name,
@@ -52,15 +46,12 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 }
             });
         });
+    }
 
-    // Process Water Infrastructure
-    waterData.water_network.main_pipelines
-        .filter(pipeline =>
-            pipeline.coordinates.some(coord =>
-                isNearby(latitude, longitude, coord.lat, coord.lng)
-            )
-        )
-        .forEach(pipeline => {
+    // Process Water Infrastructure 
+    const nearbyWater = getNearbyInfrastructure('water', latitude, longitude);
+    if (nearbyWater?.main_pipelines) {
+        nearbyWater.main_pipelines.forEach(pipeline => {
             infrastructureStatuses.push({
                 type: 'Water Pipeline',
                 name: pipeline.name,
@@ -73,13 +64,12 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 }
             });
         });
+    }
 
     // Process Power Infrastructure
-    powerData.power_grid.substations
-        .filter(substation =>
-            isNearby(latitude, longitude, substation.location.lat, substation.location.lng)
-        )
-        .forEach(substation => {
+    const nearbyPower = getNearbyInfrastructure('power', latitude, longitude);
+    if (nearbyPower?.substations) {
+        nearbyPower.substations.forEach(substation => {
             infrastructureStatuses.push({
                 type: 'Power Substation',
                 name: substation.name,
@@ -91,15 +81,10 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 }
             });
         });
+    }
 
-    // Only include transmission lines if their endpoints are nearby
-    powerData.power_grid.transmission_lines
-        .filter(line =>
-            line.coordinates.some(coord =>
-                isNearby(latitude, longitude, coord.lat, coord.lng)
-            )
-        )
-        .forEach(line => {
+    if (nearbyPower?.transmission_lines) {
+        nearbyPower.transmission_lines.forEach(line => {
             infrastructureStatuses.push({
                 type: 'Power Transmission Line',
                 name: `Line ${line.id}`,
@@ -111,6 +96,7 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 }
             });
         });
+    }
 
     const infrastructureData = infrastructureStatuses.length > 0
         ? infrastructureStatuses.map(infra =>
