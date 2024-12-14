@@ -45,7 +45,7 @@ const Map = ({ center, infrastructureData }: MapProps) => {
         // Add marker with popup
         L.marker(center, { icon })
             .addTo(map)
-            .bindPopup('Anda di sini')
+            .bindPopup('<span class="text-black">Anda di sini</span>')
             .openPopup();
 
         mapRef.current = map;
@@ -62,7 +62,7 @@ const Map = ({ center, infrastructureData }: MapProps) => {
     return (
         <div
             id="map"
-            className="w-full h-[400px] rounded-xl overflow-hidden"
+            className="text-black w-full h-[400px] rounded-xl overflow-hidden"
             style={{
                 position: 'relative',
                 zIndex: 0

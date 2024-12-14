@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${kanit.className} bg-white dark:bg-black`}>
+            <body className={`${kanit.className} text-black dark:text-slate-300 bg-white dark:bg-black`}>
                 <Providers>
                     {children}
                 </Providers>

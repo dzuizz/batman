@@ -91,7 +91,7 @@ const Dashboard = () => {
             {/* Add Map */}
             {location && (
                 <div className="mb-8">
-                    <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-violet-200/50 dark:border-violet-800/50">
+                    <Card className="text-black dark:text-slate-300 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-violet-200/50 dark:border-violet-800/50">
                         <CardHeader>
                             <CardTitle>Infrastructure Map</CardTitle>
                         </CardHeader>
@@ -110,7 +110,7 @@ const Dashboard = () => {
                 {/* Roads Card */}
                 <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-violet-200/50 dark:border-violet-800/50">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xl font-semibold">Road Infrastructure</CardTitle>
+                        <CardTitle className="text-xl text-black dark:text-slate-300 font-semibold">Road Infrastructure</CardTitle>
                         <Router className="h-6 w-6 text-violet-600 dark:text-violet-400" />
                     </CardHeader>
                     <CardContent>
@@ -118,7 +118,7 @@ const Dashboard = () => {
                             {infrastructureData?.roads?.major_highways?.map((highway) => (
                                 <div key={highway.id} className="border-b border-violet-200/30 dark:border-violet-800/30 pb-3">
                                     <div className="flex justify-between items-center mb-2">
-                                        <h3 className="font-medium">{highway.name}</h3>
+                                        <h3 className="text-black dark:text-slate-300 font-medium">{highway.name}</h3>
                                         <span className={`flex items-center gap-1 ${getStatusColor(highway.status)}`}>
                                             {highway.status === 'Good' ? <CheckCircle className="w-4 h-4" /> : <AlertTriangle className="w-4 h-4" />}
                                             {highway.status}
@@ -148,7 +148,7 @@ const Dashboard = () => {
                 {/* Water Infrastructure Card */}
                 <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-violet-200/50 dark:border-violet-800/50">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xl font-semibold">Water Network</CardTitle>
+                        <CardTitle className="text-xl text-black dark:text-slate-300 font-semibold">Water Network</CardTitle>
                         <Droplet className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                     </CardHeader>
                     <CardContent>
@@ -156,7 +156,7 @@ const Dashboard = () => {
                             {infrastructureData?.water?.main_pipelines?.map((pipeline) => (
                                 <div key={pipeline.id} className="border-b border-violet-200/30 dark:border-violet-800/30 pb-3">
                                     <div className="flex justify-between items-center mb-2">
-                                        <h3 className="font-medium">{pipeline.name}</h3>
+                                        <h3 className="text-black dark:text-slate-300 font-medium">{pipeline.name}</h3>
                                         <span className={`flex items-center gap-1 ${getStatusColor(pipeline.status)}`}>
                                             <CheckCircle className="w-4 h-4" />
                                             {pipeline.status}
@@ -184,7 +184,7 @@ const Dashboard = () => {
                 {/* Power Infrastructure Card */}
                 <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-violet-200/50 dark:border-violet-800/50">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-xl font-semibold">Power Grid</CardTitle>
+                        <CardTitle className="text-xl text-black dark:text-slate-300 font-semibold">Power Grid</CardTitle>
                         <Zap className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
                     </CardHeader>
                     <CardContent>
@@ -192,7 +192,7 @@ const Dashboard = () => {
                             {infrastructureData?.power?.substations?.map((substation) => (
                                 <div key={substation.id} className="border-b border-violet-200/30 dark:border-violet-800/30 pb-3">
                                     <div className="flex justify-between items-center mb-2">
-                                        <h3 className="font-medium">{substation.name}</h3>
+                                        <h3 className="text-black dark:text-slate-300 font-medium">{substation.name}</h3>
                                         <span className={`flex items-center gap-1 ${getStatusColor(substation.status)}`}>
                                             <CheckCircle className="w-4 h-4" />
                                             {substation.status}

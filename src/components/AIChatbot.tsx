@@ -5,6 +5,7 @@ import { generateInfrastructurePrompt } from '@/utils/promptGenerator';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import OpenAI from 'openai';
+import { v4 as uuidv4 } from 'uuid';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
@@ -31,6 +32,8 @@ export const AIChatbot = () => {
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [location, setLocation] = useState<GeoLocation | null>(null);
+    const [sessionId, setSessionId] = useState<string>('');
+
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -55,6 +58,34 @@ export const AIChatbot = () => {
             window.speechSynthesis.cancel();
         };
     }, [isOpen]); // Also trigger cleanup when chat is closed
+
+    // Initialize session ID when component mounts
+    useEffect(() => {
+        const existingSessionId = localStorage.getItem('chatSessionId');
+        if (existingSessionId) {
+            setSessionId(existingSessionId);
+            const savedMessages = localStorage.getItem(`messages_${existingSessionId}`);
+            if (savedMessages) {
+                // Parse messages and convert timestamps back to Date objects
+                const parsedMessages = JSON.parse(savedMessages).map((msg: Message) => ({
+                    ...msg,
+                    timestamp: new Date(msg.timestamp)
+                }));
+                setMessages(parsedMessages);
+            }
+        } else {
+            const newSessionId = uuidv4();
+            setSessionId(newSessionId);
+            localStorage.setItem('chatSessionId', newSessionId);
+        }
+    }, []);
+
+    // Save messages whenever they change
+    useEffect(() => {
+        if (sessionId && messages.length > 0) {
+            localStorage.setItem(`messages_${sessionId}`, JSON.stringify(messages));
+        }
+    }, [messages, sessionId]);
 
     const speakResponse = (text: string) => {
         // Cancel any ongoing speech
@@ -112,6 +143,7 @@ export const AIChatbot = () => {
                 body: JSON.stringify({
                     messages: conversationHistory,
                     contextPrompt,
+                    sessionId,
                 }),
             });
 
@@ -175,13 +207,13 @@ export const AIChatbot = () => {
 
             {/* Chat Window */}
             {isOpen && (
-                <div className="absolute bottom-20 right-0 w-[450px] h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col border border-violet-200 transition-all duration-200 ease-in-out">
+                <div className="absolute bottom-20 right-0 w-[450px] h-[85vh] bg-white dark:bg-black rounded-2xl shadow-2xl flex flex-col border border-violet-200 transition-all duration-200 ease-in-out">
                     {/* Header */}
                     <div className="p-6 border-b border-violet-200">
-                        <h3 className="text-xl font-semibold text-violet-950">
+                        <h3 className="text-xl font-semibold text-violet-950 dark:text-violet-50">
                             AI City Assistant
                         </h3>
-                        <p className="text-sm text-violet-600 mt-1">
+                        <p className="text-sm text-violet-600 dark:text-violet-200 mt-1">
                             Ask about infrastructure, metrics, and insights
                         </p>
                     </div>
@@ -195,8 +227,8 @@ export const AIChatbot = () => {
                             >
                                 <div
                                     className={`max-w-[80%] rounded-2xl p-4 ${message.type === 'user'
-                                        ? 'bg-violet-400 text-white ml-auto rounded-br-sm'
-                                        : 'bg-violet-50 text-violet-950 mr-auto rounded-bl-sm'
+                                        ? 'text-slate-100 bg-violet-400 ml-auto rounded-br-sm'
+                                        : 'text-black bg-violet-50 mr-auto rounded-bl-sm'
                                         } shadow-sm`}
                                 >
                                     <div className="prose prose-sm max-w-none">
@@ -251,12 +283,12 @@ export const AIChatbot = () => {
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Ask about city insights..."
-                                className="flex-1 rounded-xl border border-violet-200 bg-white p-4 text-violet-950 focus:outline-none focus:ring-2 focus:ring-violet-600 placeholder-violet-400"
+                                className="flex-1 rounded-xl border border-violet-200 bg-white dark:bg-black p-4 text-violet-950 dark:text-violet-50 focus:outline-none focus:ring-2 focus:ring-violet-600 placeholder-violet-400 dark:placeholder-violet-200"
                             />
                             <Button
                                 type="submit"
                                 disabled={isLoading}
-                                className="rounded-xl bg-violet-600 hover:bg-violet-700 text-white px-6 transition-all duration-200 ease-in-out transform hover:scale-105"
+                                className="rounded-xl bg-violet-400 hover:bg-violet-500 text-white px-6 transition-all duration-200 ease-in-out transform hover:scale-105"
                             >
                                 <Send className="w-5 h-5 text-white" />
                             </Button>

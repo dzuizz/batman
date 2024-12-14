@@ -64,7 +64,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border text-black dark:text-slate-300;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
