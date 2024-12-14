@@ -1,5 +1,14 @@
 import { INFRASTRUCTURE_PROMPT } from '@/config/prompts';
 import { getNearbyInfrastructure } from './infrastructureData';
+import {
+    RoadInfrastructureData,
+    WaterInfrastructureData,
+    PowerInfrastructureData,
+    Highway,
+    Pipeline,
+    Substation,
+    TransmissionLine
+} from '@/types/infrastructure';
 
 interface InfrastructureStatus {
     type: string;
@@ -33,9 +42,9 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
     const infrastructureStatuses: InfrastructureStatus[] = [];
 
     // Process Roads
-    const nearbyRoads = getNearbyInfrastructure('roads', latitude, longitude);
+    const nearbyRoads = getNearbyInfrastructure('roads', latitude, longitude) as RoadInfrastructureData;
     if (nearbyRoads?.major_highways) {
-        nearbyRoads.major_highways.forEach(highway => {
+        nearbyRoads.major_highways.forEach((highway: Highway) => {
             infrastructureStatuses.push({
                 type: 'Highway',
                 name: highway.name,
@@ -49,15 +58,13 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
     }
 
     // Process Water Infrastructure 
-    const nearbyWater = getNearbyInfrastructure('water', latitude, longitude);
+    const nearbyWater = getNearbyInfrastructure('water', latitude, longitude) as WaterInfrastructureData;
     if (nearbyWater?.main_pipelines) {
-        nearbyWater.main_pipelines.forEach(pipeline => {
+        nearbyWater.main_pipelines.forEach((pipeline: Pipeline) => {
             infrastructureStatuses.push({
                 type: 'Water Pipeline',
                 name: pipeline.name,
                 status: pipeline.status,
-                lastMaintenance: pipeline.lastInspection,
-                nextMaintenance: pipeline.nextMaintenance,
                 metrics: {
                     pressure: pipeline.pressure,
                     flowRate: pipeline.flow_rate,
@@ -67,14 +74,13 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
     }
 
     // Process Power Infrastructure
-    const nearbyPower = getNearbyInfrastructure('power', latitude, longitude);
+    const nearbyPower = getNearbyInfrastructure('power', latitude, longitude) as PowerInfrastructureData;
     if (nearbyPower?.substations) {
-        nearbyPower.substations.forEach(substation => {
+        nearbyPower.substations.forEach((substation: Substation) => {
             infrastructureStatuses.push({
                 type: 'Power Substation',
                 name: substation.name,
                 status: substation.status,
-                lastMaintenance: substation.lastMaintenance,
                 metrics: {
                     capacity: substation.capacity,
                     voltage: substation.voltage,
@@ -84,7 +90,7 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
     }
 
     if (nearbyPower?.transmission_lines) {
-        nearbyPower.transmission_lines.forEach(line => {
+        nearbyPower.transmission_lines.forEach((line: TransmissionLine) => {
             infrastructureStatuses.push({
                 type: 'Power Transmission Line',
                 name: `Line ${line.id}`,

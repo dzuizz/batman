@@ -1,45 +1,73 @@
-export interface Coordinate {
-    lat: number;
-    lng: number;
-}
+export type Status = 'Abandoned' | 'Operational' | 'Development' | 'Proposal';
 
-export interface Location {
-    lat: number;
-    lng: number;
-}
-
-interface BaseInfrastructure {
+export interface BaseInfrastructure {
     id: string;
     name: string;
-    status: string;
+    status: Status;
+    coordinates: { lat: number; lng: number }[];
+    lastMaintenance: string; // ISO date string
+    nextMaintenance: string; // ISO date string
 }
 
-interface Highway extends BaseInfrastructure {
-    coordinates: Coordinate[];
-    trafficDensity: number;
-    lastMaintenance: string;
+export interface Road extends BaseInfrastructure {
+    trafficDensity: number; // Percentage
 }
 
-interface Pipeline extends BaseInfrastructure {
-    coordinates: Coordinate[];
-    pressure: number;
-    flow_rate: number;
+export interface Pipeline extends BaseInfrastructure {
+    pressure: number; // PSI
+    flow_rate: number; // m³/h
 }
 
-interface Substation extends BaseInfrastructure {
-    location: Location;
-    capacity: number;
-    voltage: string;
+export interface Substation extends BaseInfrastructure {
+    capacity: number; // MW
+    voltage: number; // kV
+}
+
+export interface TransmissionLine extends BaseInfrastructure {
+    capacity: number; // MW
+    voltage: number; // kV
+}
+
+export type ProjectType = 'infrastructure' | 'education' | 'healthcare' | 'housing' | 'other';
+
+export interface GovernmentProject {
+    id: string;
+    name: string;
+    status: Status;
+    coordinates: { lat: number; lng: number }[];
+
+    type: ProjectType;
+    budget: number; // Currency amount
+    startDate: string; // ISO date string
+    estimatedCompletion: string; // ISO date string
+    progress: number; // Percentage
+    contractor: string;
+    description: string;
+}
+
+export interface RoadInfrastructureData {
+    major_highways: Road[];
+    arterial_roads: Road[];
+}
+
+export interface WaterInfrastructureData {
+    main_pipelines: Pipeline[];
+    treatment_plants: Pipeline[];
+}
+
+export interface PowerInfrastructureData {
+    substations: Substation[];
+    transmission_lines: TransmissionLine[];
+}
+
+export interface GovernmentProjectsData {
+    small_projects: GovernmentProject[];
+    big_projects: GovernmentProject[];
 }
 
 export interface InfrastructureData {
-    roads?: {
-        major_highways?: Highway[];
-    };
-    water?: {
-        main_pipelines?: Pipeline[];
-    };
-    power?: {
-        substations?: Substation[];
-    };
+    roads?: RoadInfrastructureData;
+    water?: WaterInfrastructureData;
+    power?: PowerInfrastructureData;
+    government?: GovernmentProjectsData;
 }

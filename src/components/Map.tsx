@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import L, { Map as LeafletMap } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { InfrastructureData } from '@/types/infrastructure';
+import { Card } from './ui/card';
 
 const icon = L.icon({
     iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
@@ -60,14 +61,16 @@ const Map = ({ center, infrastructureData }: MapProps) => {
     }, [center, infrastructureData]);
 
     return (
-        <div
-            id="map"
-            className="text-black w-full h-[400px] rounded-xl overflow-hidden"
-            style={{
-                position: 'relative',
-                zIndex: 0
-            }}
-        />
+        <Card className="text-black dark:text-slate-300 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-violet-200/50 dark:border-violet-800/50">
+            <div
+                id="map"
+                className="text-black w-full h-[400px] rounded-xl overflow-hidden"
+                style={{
+                    position: 'relative',
+                    zIndex: 0
+                }}
+            />
+        </Card>
     );
 };
 

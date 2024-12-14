@@ -1,7 +1,7 @@
 'use client';
 
-import LocationLoadingScreen from '../../components/LocationLoadingScreen';
-import Dashboard from '../../components/Dashboard';
+import LocationLoadingScreen from '@/components/LocationLoadingScreen';
+import Dashboard from '@/components/Dashboard';
 import { useLocation } from '@/context/LocationContext';
 function DashboardContent() {
     const { location, isLoading, error } = useLocation();

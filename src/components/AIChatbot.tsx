@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
+import { MessageSquare, X, Send, Loader2, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { generateInfrastructurePrompt } from '@/utils/promptGenerator';
 import ReactMarkdown from 'react-markdown';
@@ -8,65 +8,157 @@ import OpenAI from 'openai';
 import { v4 as uuidv4 } from 'uuid';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
 
-// Add this interface after the existing interfaces
+// Types and Interfaces
 interface TTSConfig {
     subscriptionKey: string;
     region: string;
 }
 
-const detectLanguage = (text: string): 'id' | 'en' => {
-    // Common Indonesian words
-    const idWords = ['yang', 'di', 'ke', 'dari', 'pada', 'dalam', 'untuk', 'dengan', 'dan', 'atau', 'ini', 'itu', 'juga', 'sudah', 'saya', 'anda', 'dia', 'mereka', 'kita', 'akan', 'bisa', 'ada', 'tidak', 'saat', 'oleh', 'setelah', 'para', 'seperti', 'bagi', 'serta'];
+interface TextSegment {
+    text: string;
+    language: 'id' | 'en';
+}
 
-    const words = text.toLowerCase().split(/\s+/);
-    const idWordCount = words.filter(word => idWords.includes(word)).length;
-
-    return idWordCount > 0 ? 'id' : 'en';
+// Language Detection Constants
+const INDONESIAN_MARKERS = {
+    particles: ['lah', 'kah', 'pun', 'lho', 'kok', 'sih', 'deh', 'dong', 'kan'],
+    prepositions: ['di', 'ke', 'dari', 'pada', 'dalam', 'dengan', 'oleh', 'kepada', 'untuk'],
+    conjunctions: ['dan', 'atau', 'tetapi', 'namun', 'serta', 'karena', 'jika', 'kalau', 'bila'],
+    pronouns: ['saya', 'aku', 'kamu', 'anda', 'dia', 'mereka', 'kita', 'kami'],
+    common: ['yang', 'ini', 'itu', 'juga', 'sudah', 'akan', 'bisa', 'ada', 'tidak', 'belum', 'sedang', 'telah']
 };
 
-// Add this class before the AIChatbot component
-class BilingualTTS {
+const TECHNICAL_TERMS = [
+    // Infrastructure terms
+    'traffic', 'density', 'pipeline', 'highway', 'road', 'maintenance',
+    'flow rate', 'pressure', 'substation', 'transmission', 'voltage',
+    // Status terms
+    'online', 'offline', 'status', 'pending', 'active', 'inactive',
+    // Technical terms
+    'server', 'system', 'database', 'network', 'backup', 'gateway',
+    // Measurement terms
+    'meter', 'kilometer', 'watt', 'voltage', 'ampere', 'frequency'
+];
+
+class BilingualTextProcessor {
+    private readonly technicalTermsRegex: RegExp;
+
+    constructor() {
+        this.technicalTermsRegex = new RegExp(
+            `\\b(${TECHNICAL_TERMS.join('|')})\\b`,
+            'i'
+        );
+    }
+
+    isIndonesianWord(word: string): boolean {
+        const normalizedWord = word.toLowerCase();
+        return Object.values(INDONESIAN_MARKERS).flat().includes(normalizedWord);
+    }
+
+    isTechnicalTerm(word: string): boolean {
+        return this.technicalTermsRegex.test(word);
+    }
+
+    private cleanWord(word: string): string {
+        return word.replace(/[.,!?;:"()[\]{}]/g, '').trim();
+    }
+
+    processText(text: string): TextSegment[] {
+        const segments: TextSegment[] = [];
+        let currentSegment: TextSegment = { text: '', language: 'id' };
+
+        const words = text.split(/(\s+)/);
+
+        words.forEach((word) => {
+            if (/^\s+$/.test(word)) {
+                currentSegment.text += word;
+                return;
+            }
+
+            const cleanWord = this.cleanWord(word);
+            let wordLanguage: 'id' | 'en';
+
+            if (this.isTechnicalTerm(cleanWord)) {
+                wordLanguage = 'en';
+            } else if (this.isIndonesianWord(cleanWord)) {
+                wordLanguage = 'id';
+            } else {
+                wordLanguage = currentSegment.language || 'id';
+            }
+
+            if (wordLanguage !== currentSegment.language && currentSegment.text.trim()) {
+                segments.push({ ...currentSegment });
+                currentSegment = { text: '', language: wordLanguage };
+            }
+
+            currentSegment.text += word;
+            currentSegment.language = wordLanguage;
+        });
+
+        if (currentSegment.text.trim()) {
+            segments.push(currentSegment);
+        }
+
+        return this.mergeAdjacentSegments(segments);
+    }
+
+    private mergeAdjacentSegments(segments: TextSegment[]): TextSegment[] {
+        return segments.reduce((merged: TextSegment[], current) => {
+            if (merged.length === 0) {
+                return [current];
+            }
+
+            const previous = merged[merged.length - 1];
+            if (previous.language === current.language) {
+                previous.text += current.text;
+                return merged;
+            }
+
+            return [...merged, current];
+        }, []);
+    }
+}
+
+class TTS {
     private speechConfig: sdk.SpeechConfig;
-    private voices: {
-        id: { female: string; male: string };
-        en: { female: string; male: string };
-    };
+    private currentSynthesizer: sdk.SpeechSynthesizer | null = null;
+    private textProcessor: BilingualTextProcessor;
 
     constructor(config: TTSConfig) {
         this.speechConfig = sdk.SpeechConfig.fromSubscription(
             config.subscriptionKey,
             config.region
         );
-
-        this.voices = {
-            id: {
-                female: 'id-ID-GadisNeural',
-                male: 'id-ID-ArdiNeural'
-            },
-            en: {
-                female: 'en-US-JennyNeural',
-                male: 'en-US-GuyNeural'
-            }
-        };
+        this.speechConfig.speechSynthesisVoiceName = 'id-ID-GadisNeural';
+        this.textProcessor = new BilingualTextProcessor();
     }
 
-    async speak(text: string, preferredGender: 'female' | 'male' = 'female'): Promise<void> {
+    async speak(text: string): Promise<void> {
         try {
-            const detectedLang = await this.detectLanguage(text);
-            const voice = this.voices[detectedLang][preferredGender];
-            this.speechConfig.speechSynthesisVoiceName = voice;
+            this.stop();
 
-            const synthesizer = new sdk.SpeechSynthesizer(this.speechConfig);
+            if (!this.currentSynthesizer) {
+                this.currentSynthesizer = new sdk.SpeechSynthesizer(this.speechConfig);
+            }
 
-            return new Promise((resolve, reject) => {
-                synthesizer.speakTextAsync(
-                    text,
+            const segments = this.textProcessor.processText(text);
+            const combinedText = segments
+                .map(segment => segment.text.trim())
+                .filter(text => text.length > 0)
+                .join(' ');
+
+            await new Promise<void>((resolve, reject) => {
+                if (!this.currentSynthesizer) {
+                    reject(new Error('Synthesizer not initialized'));
+                    return;
+                }
+
+                this.currentSynthesizer.speakTextAsync(
+                    combinedText,
                     result => {
-                        synthesizer.close();
                         resolve();
                     },
                     error => {
-                        synthesizer.close();
                         reject(error);
                     }
                 );
@@ -77,15 +169,18 @@ class BilingualTTS {
         }
     }
 
-    private async detectLanguage(text: string): Promise<'id' | 'en'> {
-        return detectLanguage(text);
+    stop(): void {
+        if (this.currentSynthesizer) {
+            this.currentSynthesizer.close();
+            this.currentSynthesizer = null;
+        }
     }
 }
 
 // Initialize OpenAI client
 const openai = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true // Note: In production, you should use a backend API
+    dangerouslyAllowBrowser: true
 });
 
 interface Message {
@@ -108,7 +203,7 @@ export const AIChatbot = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [location, setLocation] = useState<GeoLocation | null>(null);
     const [sessionId, setSessionId] = useState<string>('');
-    const [tts] = useState(() => new BilingualTTS({
+    const [tts] = useState(() => new TTS({
         subscriptionKey: process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY || '',
         region: process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION || ''
     }));
@@ -130,21 +225,30 @@ export const AIChatbot = () => {
         });
     }, []);
 
-    useEffect(() => {
-        // Cleanup function to stop speech when component unmounts or chat closes
-        return () => {
-            window.speechSynthesis.cancel();
-        };
-    }, [isOpen]); // Also trigger cleanup when chat is closed
+    const clearSession = () => {
+        if (!sessionId) return;
+        localStorage.removeItem(`messages_${sessionId}`);
+        localStorage.removeItem('chatSessionId');
+        setMessages([]);
+        const newSessionId = uuidv4();
+        setSessionId(newSessionId);
+        localStorage.setItem('chatSessionId', newSessionId);
+    };
 
-    // Initialize session ID when component mounts
+    useEffect(() => {
+        return () => {
+            if (tts) {
+                tts.stop();
+            }
+        };
+    }, [isOpen]);
+
     useEffect(() => {
         const existingSessionId = localStorage.getItem('chatSessionId');
         if (existingSessionId) {
             setSessionId(existingSessionId);
             const savedMessages = localStorage.getItem(`messages_${existingSessionId}`);
             if (savedMessages) {
-                // Parse messages and convert timestamps back to Date objects
                 const parsedMessages = JSON.parse(savedMessages).map((msg: Message) => ({
                     ...msg,
                     timestamp: new Date(msg.timestamp)
@@ -158,7 +262,6 @@ export const AIChatbot = () => {
         }
     }, []);
 
-    // Save messages whenever they change
     useEffect(() => {
         if (sessionId && messages.length > 0) {
             localStorage.setItem(`messages_${sessionId}`, JSON.stringify(messages));
@@ -283,13 +386,22 @@ export const AIChatbot = () => {
             {isOpen && (
                 <div className="absolute bottom-20 right-0 w-[450px] h-[85vh] bg-white dark:bg-black rounded-2xl shadow-2xl flex flex-col border border-violet-200 transition-all duration-200 ease-in-out">
                     {/* Header */}
-                    <div className="p-6 border-b border-violet-200">
-                        <h3 className="text-xl font-semibold text-violet-950 dark:text-violet-50">
-                            AI City Assistant
-                        </h3>
-                        <p className="text-sm text-violet-600 dark:text-violet-200 mt-1">
-                            Ask about infrastructure, metrics, and insights
-                        </p>
+                    <div className="p-6 border-b border-violet-200 flex justify-between items-center">
+                        <div>
+                            <h3 className="text-xl font-semibold text-violet-950 dark:text-violet-50">
+                                AI City Assistant
+                            </h3>
+                            <p className="text-sm text-violet-600 dark:text-violet-200 mt-1">
+                                Ask about infrastructure, metrics, and insights
+                            </p>
+                        </div>
+                        <Button
+                            onClick={clearSession}
+                            variant="ghost"
+                            className="hover:bg-violet-100 dark:hover:bg-violet-900"
+                        >
+                            <Trash2 className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                        </Button>
                     </div>
 
                     {/* Messages */}
