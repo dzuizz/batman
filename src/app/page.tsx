@@ -1,101 +1,191 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight, Globe, Shield, Gauge, BarChart, Users, Clock, Zap, Brain } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ThemeProvider } from 'next-themes';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    const [isVisible, setIsVisible] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    const stats = [
+        { label: 'Cities Using Platform', value: '50+' },
+        { label: 'Data Points Processed', value: '1M+' },
+        { label: 'Response Time', value: '<2ms' },
+        { label: 'User Satisfaction', value: '98%' },
+    ];
+
+    const testimonials = [
+        {
+            quote: "Transformed how we manage our city's infrastructure",
+            author: "Sarah Chen",
+            role: "City Manager, Metropolitan Hub",
+            image: "/api/placeholder/64/64"
+        },
+        {
+            quote: "Real-time insights that actually make a difference",
+            author: "Marcus Rodriguez",
+            role: "Urban Planning Director",
+            image: "/api/placeholder/64/64"
+        },
+    ];
+
+    return (
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="min-h-screen">
+                {/* Hero Section with Animation */}
+                <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
+                    <div className="absolute inset-0 bg-grid-violet-100/30 dark:bg-grid-violet-700/30 animate-pulse"></div>
+                    <div className="relative">
+                        <div className="text-center space-y-8">
+                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black dark:text-white mb-6 animate-fade-in">
+                                Mahakam AI Dashboard
+                            </h1>
+                            <p className="text-xl text-violet-700 dark:text-violet-300 mb-8 max-w-3xl mx-auto animate-slide-up">
+                                Empower your city management with real-time insights and data-driven decision making
+                            </p>
+                            <div className="flex justify-center gap-4 animate-fade-in-up">
+                                <Link href="/dashboard">
+                                    <Button size="lg" variant="outline" className="bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-white">
+                                        Launch Dashboard
+                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Button>
+                                </Link>
+                                <Link href="https://github.com/dzuizz/batman">
+                                    <Button size="lg" variant="outline" className="bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-white">
+                                        View on GitHub
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Statistics Section */}
+                <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-violet-100/50 dark:bg-violet-900/30">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="text-center transform hover:scale-105 transition-transform">
+                                <div className="text-3xl font-bold text-purple-500 dark:text-purple-300">{stat.value}</div>
+                                <div className="text-sm text-violet-700 dark:text-violet-400">{stat.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Features Section */}
+                <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center text-violet-900 dark:text-violet-100 mb-12">
+                        Powerful Features
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { icon: Globe, title: "Real-time Location", desc: "Precise geolocation tracking for accurate regional monitoring" },
+                            { icon: Shield, title: "Emergency Response", desc: "Monitor and manage emergency situations with live updates" },
+                            { icon: Gauge, title: "Infrastructure Metrics", desc: "Track utility systems and public infrastructure status" },
+                            { icon: BarChart, title: "Data Visualization", desc: "Interactive charts and graphs for better insight" },
+                            { icon: Users, title: "Community Engagement", desc: "Foster citizen participation and feedback" },
+                            { icon: Clock, title: "Predictive Analytics", desc: "Forecast trends and optimize resource allocation" },
+                            { icon: Zap, title: "Quick Actions", desc: "Rapid response protocols and automated workflows" },
+                            { icon: Brain, title: "AI Integration", desc: "Smart algorithms for intelligent decision support" }
+                        ].map((feature, index) => (
+                            <Card key={index} className="transform hover:scale-105 transition-all hover:shadow-lg bg-white/80 dark:bg-violet-950/80 border-violet-100 dark:border-violet-400/20">
+                                <CardHeader>
+                                    <feature.icon className="h-8 w-8 text-purple-400 dark:text-purple-300 mb-2" />
+                                    <CardTitle className="text-violet-900 dark:text-violet-100">{feature.title}</CardTitle>
+                                    <CardDescription className="text-violet-700 dark:text-violet-300">{feature.desc}</CardDescription>
+                                </CardHeader>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Testimonials Section */}
+                <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-violet-100/50 dark:bg-violet-900/30">
+                    <h2 className="text-3xl font-bold text-center text-violet-900 dark:text-violet-100 mb-12">
+                        What Our Users Say
+                    </h2>
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {testimonials.map((testimonial, index) => (
+                            <Card key={index} className="transform hover:scale-105 transition-all bg-white/80 dark:bg-violet-950/80 border-violet-100 dark:border-violet-400/20">
+                                <CardContent className="p-6">
+                                    <div className="flex items-center space-x-4">
+                                        <img
+                                            src={testimonial.image}
+                                            alt={testimonial.author}
+                                            className="rounded-full"
+                                        />
+                                        <div>
+                                            <p className="text-lg font-semibold text-violet-900 dark:text-violet-100">
+                                                {testimonial.quote}
+                                            </p>
+                                            <p className="text-sm text-violet-700 dark:text-violet-300 mt-2">
+                                                {testimonial.author} - {testimonial.role}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Tech Stack Section */}
+                <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center text-violet-900 dark:text-violet-100 mb-12">
+                        Built With Modern Tech
+                    </h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        {[
+                            { name: "Next.js 14", desc: "React Framework" },
+                            { name: "TypeScript", desc: "Type Safety" },
+                            { name: "Tailwind CSS", desc: "Styling" },
+                            { name: "Recharts", desc: "Data Visualization" }
+                        ].map((tech, index) => (
+                            <div key={index} className="p-6 rounded-lg bg-white/80 dark:bg-violet-950/80 shadow-lg transform hover:scale-105 transition-all border border-violet-100 dark:border-violet-400/20">
+                                <h3 className="font-semibold mb-2 text-violet-900 dark:text-violet-100">{tech.name}</h3>
+                                <p className="text-violet-700 dark:text-violet-300">{tech.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* CTA Section */}
+                <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-r from-violet-100 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30">
+                    <div className="text-center space-y-6">
+                        <h2 className="text-3xl font-bold text-violet-900 dark:text-violet-100">
+                            Ready to Transform Your City?
+                        </h2>
+                        <p className="text-xl text-violet-700 dark:text-violet-300 max-w-2xl mx-auto">
+                            Join the growing network of smart cities using our platform
+                        </p>
+                        <Button size="lg" className="bg-violet-200 hover:bg-violet-300 text-violet-900 dark:bg-violet-300/80 dark:hover:bg-violet-300 dark:text-violet-950 transform transition-all hover:scale-105">
+                            Get Started Today
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </div>
+                </section>
+
+                {/* Footer */}
+                <footer className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-violet-100 dark:border-violet-400/20">
+                    <div className="text-center text-violet-700 dark:text-violet-300 space-y-4">
+                        <p>© 2024 Smart City Dashboard. All rights reserved.</p>
+                        <div className="flex justify-center space-x-6">
+                            <Link href="#" className="hover:text-violet-900 dark:hover:text-violet-100 transition-colors">
+                                Privacy Policy
+                            </Link>
+                            <Link href="#" className="hover:text-violet-900 dark:hover:text-violet-100 transition-colors">
+                                Terms of Service
+                            </Link>
+                            <Link href="#" className="hover:text-violet-900 dark:hover:text-violet-100 transition-colors">
+                                Contact
+                            </Link>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </ThemeProvider>
+    );
 }

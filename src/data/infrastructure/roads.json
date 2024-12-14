@@ -1,0 +1,1808 @@
+{
+    "roads": {
+        "major_highways": [
+            {
+                "id": "MH001",
+                "name": "Highway 1",
+                "status": "Fair",
+                "lastMaintenance": "2022-10-19",
+                "coordinates": [
+                    {
+                        "lat": -7.129525,
+                        "lng": 112.347106
+                    },
+                    {
+                        "lat": -7.112131,
+                        "lng": 112.710984
+                    }
+                ],
+                "trafficDensity": 90,
+                "maintenanceSchedule": "2024-12-02"
+            },
+            {
+                "id": "MH002",
+                "name": "Highway 2",
+                "status": "Fair",
+                "lastMaintenance": "2024-01-05",
+                "coordinates": [
+                    {
+                        "lat": 2.247395,
+                        "lng": 113.961063
+                    },
+                    {
+                        "lat": 2.026728,
+                        "lng": 114.375672
+                    }
+                ],
+                "trafficDensity": 51,
+                "maintenanceSchedule": "2024-01-10"
+            },
+            {
+                "id": "MH003",
+                "name": "Highway 3",
+                "status": "Fair",
+                "lastMaintenance": "2022-11-23",
+                "coordinates": [
+                    {
+                        "lat": -9.488656,
+                        "lng": 133.377348
+                    },
+                    {
+                        "lat": -9.722518,
+                        "lng": 133.401403
+                    }
+                ],
+                "trafficDensity": 33,
+                "maintenanceSchedule": "2024-05-24"
+            },
+            {
+                "id": "MH004",
+                "name": "Highway 4",
+                "status": "Fair",
+                "lastMaintenance": "2023-12-28",
+                "coordinates": [
+                    {
+                        "lat": 4.544941,
+                        "lng": 115.543712
+                    },
+                    {
+                        "lat": 4.718952,
+                        "lng": 115.75692
+                    }
+                ],
+                "trafficDensity": 72,
+                "maintenanceSchedule": "2024-04-10"
+            },
+            {
+                "id": "MH005",
+                "name": "Highway 5",
+                "status": "Good",
+                "lastMaintenance": "2023-02-01",
+                "coordinates": [
+                    {
+                        "lat": 2.217959,
+                        "lng": 134.780249
+                    },
+                    {
+                        "lat": 2.232423,
+                        "lng": 134.582944
+                    }
+                ],
+                "trafficDensity": 60,
+                "maintenanceSchedule": "2024-07-25"
+            },
+            {
+                "id": "MH006",
+                "name": "Highway 6",
+                "status": "Under Construction",
+                "lastMaintenance": "2023-11-06",
+                "coordinates": [
+                    {
+                        "lat": -7.238195,
+                        "lng": 112.305229
+                    },
+                    {
+                        "lat": -7.494277,
+                        "lng": 112.24354
+                    }
+                ],
+                "trafficDensity": 78,
+                "maintenanceSchedule": "2024-02-03"
+            },
+            {
+                "id": "MH007",
+                "name": "Highway 7",
+                "status": "Good",
+                "lastMaintenance": "2021-08-15",
+                "coordinates": [
+                    {
+                        "lat": -3.074463,
+                        "lng": 128.856484
+                    },
+                    {
+                        "lat": -3.124783,
+                        "lng": 129.140928
+                    }
+                ],
+                "trafficDensity": 81,
+                "maintenanceSchedule": "2024-09-14"
+            },
+            {
+                "id": "MH008",
+                "name": "Highway 8",
+                "status": "Good",
+                "lastMaintenance": "2021-02-21",
+                "coordinates": [
+                    {
+                        "lat": 3.775987,
+                        "lng": 125.754434
+                    },
+                    {
+                        "lat": 3.510766,
+                        "lng": 125.305645
+                    }
+                ],
+                "trafficDensity": 87,
+                "maintenanceSchedule": "2024-02-24"
+            },
+            {
+                "id": "MH009",
+                "name": "Highway 9",
+                "status": "Under Construction",
+                "lastMaintenance": "2020-12-30",
+                "coordinates": [
+                    {
+                        "lat": 5.784938,
+                        "lng": 110.109626
+                    },
+                    {
+                        "lat": 5.704897,
+                        "lng": 109.772713
+                    }
+                ],
+                "trafficDensity": 30,
+                "maintenanceSchedule": "2024-05-09"
+            },
+            {
+                "id": "MH010",
+                "name": "Highway 10",
+                "status": "Under Construction",
+                "lastMaintenance": "2023-10-09",
+                "coordinates": [
+                    {
+                        "lat": 3.031629,
+                        "lng": 100.07516
+                    },
+                    {
+                        "lat": 3.074479,
+                        "lng": 100.47881
+                    }
+                ],
+                "trafficDensity": 93,
+                "maintenanceSchedule": "2024-03-28"
+            },
+            {
+                "id": "MH011",
+                "name": "Highway 11",
+                "status": "Under Construction",
+                "lastMaintenance": "2021-11-10",
+                "coordinates": [
+                    {
+                        "lat": -7.138054,
+                        "lng": 112.397449
+                    },
+                    {
+                        "lat": -7.252615,
+                        "lng": 111.963231
+                    }
+                ],
+                "trafficDensity": 39,
+                "maintenanceSchedule": "2024-10-29"
+            },
+            {
+                "id": "MH012",
+                "name": "Highway 12",
+                "status": "Good",
+                "lastMaintenance": "2023-09-22",
+                "coordinates": [
+                    {
+                        "lat": -8.863999,
+                        "lng": 132.942921
+                    },
+                    {
+                        "lat": -8.506004,
+                        "lng": 132.547643
+                    }
+                ],
+                "trafficDensity": 49,
+                "maintenanceSchedule": "2024-02-11"
+            },
+            {
+                "id": "MH013",
+                "name": "Highway 13",
+                "status": "Under Construction",
+                "lastMaintenance": "2024-03-08",
+                "coordinates": [
+                    {
+                        "lat": 3.781121,
+                        "lng": 130.066005
+                    },
+                    {
+                        "lat": 3.847981,
+                        "lng": 129.566572
+                    }
+                ],
+                "trafficDensity": 84,
+                "maintenanceSchedule": "2024-08-06"
+            },
+            {
+                "id": "MH014",
+                "name": "Highway 14",
+                "status": "Under Construction",
+                "lastMaintenance": "2021-02-12",
+                "coordinates": [
+                    {
+                        "lat": -2.663119,
+                        "lng": 125.530954
+                    },
+                    {
+                        "lat": -2.57748,
+                        "lng": 126.008774
+                    }
+                ],
+                "trafficDensity": 32,
+                "maintenanceSchedule": "2024-09-22"
+            },
+            {
+                "id": "MH015",
+                "name": "Highway 15",
+                "status": "Good",
+                "lastMaintenance": "2021-08-24",
+                "coordinates": [
+                    {
+                        "lat": 2.790681,
+                        "lng": 137.934128
+                    },
+                    {
+                        "lat": 2.827782,
+                        "lng": 137.788359
+                    }
+                ],
+                "trafficDensity": 92,
+                "maintenanceSchedule": "2024-07-29"
+            },
+            {
+                "id": "MH016",
+                "name": "Highway 16",
+                "status": "Good",
+                "lastMaintenance": "2024-07-05",
+                "coordinates": [
+                    {
+                        "lat": -7.219922,
+                        "lng": 112.408365
+                    },
+                    {
+                        "lat": -7.136062,
+                        "lng": 112.632026
+                    }
+                ],
+                "trafficDensity": 58,
+                "maintenanceSchedule": "2024-03-27"
+            },
+            {
+                "id": "MH017",
+                "name": "Highway 17",
+                "status": "Fair",
+                "lastMaintenance": "2024-02-12",
+                "coordinates": [
+                    {
+                        "lat": 5.488934,
+                        "lng": 97.127784
+                    },
+                    {
+                        "lat": 5.030765,
+                        "lng": 97.199291
+                    }
+                ],
+                "trafficDensity": 65,
+                "maintenanceSchedule": "2024-01-17"
+            },
+            {
+                "id": "MH018",
+                "name": "Highway 18",
+                "status": "Under Construction",
+                "lastMaintenance": "2023-08-27",
+                "coordinates": [
+                    {
+                        "lat": -8.722442,
+                        "lng": 126.051053
+                    },
+                    {
+                        "lat": -8.310847,
+                        "lng": 126.536709
+                    }
+                ],
+                "trafficDensity": 91,
+                "maintenanceSchedule": "2024-11-05"
+            },
+            {
+                "id": "MH019",
+                "name": "Highway 19",
+                "status": "Fair",
+                "lastMaintenance": "2023-06-09",
+                "coordinates": [
+                    {
+                        "lat": 4.832883,
+                        "lng": 128.099804
+                    },
+                    {
+                        "lat": 5.106665,
+                        "lng": 127.888807
+                    }
+                ],
+                "trafficDensity": 98,
+                "maintenanceSchedule": "2024-04-20"
+            },
+            {
+                "id": "MH020",
+                "name": "Highway 20",
+                "status": "Under Construction",
+                "lastMaintenance": "2022-06-23",
+                "coordinates": [
+                    {
+                        "lat": -2.022256,
+                        "lng": 102.201809
+                    },
+                    {
+                        "lat": -1.804445,
+                        "lng": 102.276084
+                    }
+                ],
+                "trafficDensity": 94,
+                "maintenanceSchedule": "2024-08-27"
+            },
+            {
+                "id": "MH021",
+                "name": "Highway 21",
+                "status": "Good",
+                "lastMaintenance": "2023-03-09",
+                "coordinates": [
+                    {
+                        "lat": -7.139148,
+                        "lng": 112.470476
+                    },
+                    {
+                        "lat": -7.587695,
+                        "lng": 112.495531
+                    }
+                ],
+                "trafficDensity": 51,
+                "maintenanceSchedule": "2024-02-08"
+            },
+            {
+                "id": "MH022",
+                "name": "Highway 22",
+                "status": "Under Construction",
+                "lastMaintenance": "2020-12-03",
+                "coordinates": [
+                    {
+                        "lat": 4.396414,
+                        "lng": 116.642169
+                    },
+                    {
+                        "lat": 4.765964,
+                        "lng": 117.088844
+                    }
+                ],
+                "trafficDensity": 93,
+                "maintenanceSchedule": "2024-09-12"
+            },
+            {
+                "id": "MH023",
+                "name": "Highway 23",
+                "status": "Good",
+                "lastMaintenance": "2022-07-10",
+                "coordinates": [
+                    {
+                        "lat": -4.391986,
+                        "lng": 96.308486
+                    },
+                    {
+                        "lat": -4.232501,
+                        "lng": 96.670935
+                    }
+                ],
+                "trafficDensity": 74,
+                "maintenanceSchedule": "2024-01-18"
+            },
+            {
+                "id": "MH024",
+                "name": "Highway 24",
+                "status": "Fair",
+                "lastMaintenance": "2024-07-29",
+                "coordinates": [
+                    {
+                        "lat": -3.341463,
+                        "lng": 105.646685
+                    },
+                    {
+                        "lat": -3.327322,
+                        "lng": 105.739429
+                    }
+                ],
+                "trafficDensity": 31,
+                "maintenanceSchedule": "2024-10-19"
+            },
+            {
+                "id": "MH025",
+                "name": "Highway 25",
+                "status": "Good",
+                "lastMaintenance": "2020-09-19",
+                "coordinates": [
+                    {
+                        "lat": 4.241158,
+                        "lng": 108.390078
+                    },
+                    {
+                        "lat": 4.490189,
+                        "lng": 108.469391
+                    }
+                ],
+                "trafficDensity": 75,
+                "maintenanceSchedule": "2024-12-13"
+            },
+            {
+                "id": "MH026",
+                "name": "Highway 26",
+                "status": "Under Construction",
+                "lastMaintenance": "2023-09-30",
+                "coordinates": [
+                    {
+                        "lat": -7.104199,
+                        "lng": 112.482403
+                    },
+                    {
+                        "lat": -7.041749,
+                        "lng": 112.017524
+                    }
+                ],
+                "trafficDensity": 71,
+                "maintenanceSchedule": "2024-07-04"
+            },
+            {
+                "id": "MH027",
+                "name": "Highway 27",
+                "status": "Under Construction",
+                "lastMaintenance": "2021-06-28",
+                "coordinates": [
+                    {
+                        "lat": 5.141754,
+                        "lng": 140.548022
+                    },
+                    {
+                        "lat": 5.549636,
+                        "lng": 140.664034
+                    }
+                ],
+                "trafficDensity": 36,
+                "maintenanceSchedule": "2024-10-30"
+            },
+            {
+                "id": "MH028",
+                "name": "Highway 28",
+                "status": "Under Construction",
+                "lastMaintenance": "2022-07-17",
+                "coordinates": [
+                    {
+                        "lat": -7.142159,
+                        "lng": 114.633652
+                    },
+                    {
+                        "lat": -7.396961,
+                        "lng": 115.090381
+                    }
+                ],
+                "trafficDensity": 37,
+                "maintenanceSchedule": "2024-01-16"
+            },
+            {
+                "id": "MH029",
+                "name": "Highway 29",
+                "status": "Fair",
+                "lastMaintenance": "2020-11-25",
+                "coordinates": [
+                    {
+                        "lat": 0.410628,
+                        "lng": 124.150255
+                    },
+                    {
+                        "lat": 0.628518,
+                        "lng": 124.502392
+                    }
+                ],
+                "trafficDensity": 79,
+                "maintenanceSchedule": "2024-07-27"
+            },
+            {
+                "id": "MH030",
+                "name": "Highway 30",
+                "status": "Under Construction",
+                "lastMaintenance": "2023-11-22",
+                "coordinates": [
+                    {
+                        "lat": 2.863986,
+                        "lng": 103.276608
+                    },
+                    {
+                        "lat": 2.831196,
+                        "lng": 102.989001
+                    }
+                ],
+                "trafficDensity": 65,
+                "maintenanceSchedule": "2024-05-27"
+            },
+            {
+                "id": "MH031",
+                "name": "Highway 31",
+                "status": "Good",
+                "lastMaintenance": "2023-07-31",
+                "coordinates": [
+                    {
+                        "lat": -7.107863,
+                        "lng": 112.481892
+                    },
+                    {
+                        "lat": -6.699463,
+                        "lng": 112.402014
+                    }
+                ],
+                "trafficDensity": 70,
+                "maintenanceSchedule": "2024-10-15"
+            },
+            {
+                "id": "MH032",
+                "name": "Highway 32",
+                "status": "Under Construction",
+                "lastMaintenance": "2020-10-08",
+                "coordinates": [
+                    {
+                        "lat": -9.802195,
+                        "lng": 102.589339
+                    },
+                    {
+                        "lat": -9.932468,
+                        "lng": 102.300339
+                    }
+                ],
+                "trafficDensity": 53,
+                "maintenanceSchedule": "2024-01-26"
+            },
+            {
+                "id": "MH033",
+                "name": "Highway 33",
+                "status": "Fair",
+                "lastMaintenance": "2021-02-20",
+                "coordinates": [
+                    {
+                        "lat": 0.588333,
+                        "lng": 107.213307
+                    },
+                    {
+                        "lat": 0.600983,
+                        "lng": 107.093798
+                    }
+                ],
+                "trafficDensity": 36,
+                "maintenanceSchedule": "2024-08-03"
+            },
+            {
+                "id": "MH034",
+                "name": "Highway 34",
+                "status": "Fair",
+                "lastMaintenance": "2022-07-29",
+                "coordinates": [
+                    {
+                        "lat": 1.177384,
+                        "lng": 102.157222
+                    },
+                    {
+                        "lat": 1.582463,
+                        "lng": 102.030517
+                    }
+                ],
+                "trafficDensity": 38,
+                "maintenanceSchedule": "2024-09-21"
+            },
+            {
+                "id": "MH035",
+                "name": "Highway 35",
+                "status": "Good",
+                "lastMaintenance": "2022-06-04",
+                "coordinates": [
+                    {
+                        "lat": -6.801732,
+                        "lng": 127.296186
+                    },
+                    {
+                        "lat": -6.840761,
+                        "lng": 127.404021
+                    }
+                ],
+                "trafficDensity": 61,
+                "maintenanceSchedule": "2024-05-06"
+            },
+            {
+                "id": "MH036",
+                "name": "Highway 36",
+                "status": "Good",
+                "lastMaintenance": "2023-09-16",
+                "coordinates": [
+                    {
+                        "lat": -7.129724,
+                        "lng": 112.324399
+                    },
+                    {
+                        "lat": -6.875145,
+                        "lng": 112.27157
+                    }
+                ],
+                "trafficDensity": 31,
+                "maintenanceSchedule": "2024-11-09"
+            },
+            {
+                "id": "MH037",
+                "name": "Highway 37",
+                "status": "Fair",
+                "lastMaintenance": "2020-02-02",
+                "coordinates": [
+                    {
+                        "lat": 1.668302,
+                        "lng": 124.560854
+                    },
+                    {
+                        "lat": 1.834756,
+                        "lng": 125.026447
+                    }
+                ],
+                "trafficDensity": 57,
+                "maintenanceSchedule": "2024-03-03"
+            },
+            {
+                "id": "MH038",
+                "name": "Highway 38",
+                "status": "Fair",
+                "lastMaintenance": "2020-07-21",
+                "coordinates": [
+                    {
+                        "lat": -5.956099,
+                        "lng": 139.090674
+                    },
+                    {
+                        "lat": -6.383794,
+                        "lng": 138.916083
+                    }
+                ],
+                "trafficDensity": 61,
+                "maintenanceSchedule": "2024-03-23"
+            },
+            {
+                "id": "MH039",
+                "name": "Highway 39",
+                "status": "Good",
+                "lastMaintenance": "2020-08-12",
+                "coordinates": [
+                    {
+                        "lat": -6.050246,
+                        "lng": 134.527229
+                    },
+                    {
+                        "lat": -5.882904,
+                        "lng": 134.561295
+                    }
+                ],
+                "trafficDensity": 46,
+                "maintenanceSchedule": "2024-08-24"
+            },
+            {
+                "id": "MH040",
+                "name": "Highway 40",
+                "status": "Under Construction",
+                "lastMaintenance": "2024-08-14",
+                "coordinates": [
+                    {
+                        "lat": -4.731153,
+                        "lng": 121.384129
+                    },
+                    {
+                        "lat": -4.976171,
+                        "lng": 121.056135
+                    }
+                ],
+                "trafficDensity": 70,
+                "maintenanceSchedule": "2024-07-23"
+            },
+            {
+                "id": "MH041",
+                "name": "Highway 41",
+                "status": "Good",
+                "lastMaintenance": "2020-11-23",
+                "coordinates": [
+                    {
+                        "lat": -7.106773,
+                        "lng": 112.444279
+                    },
+                    {
+                        "lat": -6.807362,
+                        "lng": 112.49445
+                    }
+                ],
+                "trafficDensity": 73,
+                "maintenanceSchedule": "2024-05-29"
+            },
+            {
+                "id": "MH042",
+                "name": "Highway 42",
+                "status": "Good",
+                "lastMaintenance": "2020-03-18",
+                "coordinates": [
+                    {
+                        "lat": -0.842463,
+                        "lng": 109.865782
+                    },
+                    {
+                        "lat": -0.584145,
+                        "lng": 110.256047
+                    }
+                ],
+                "trafficDensity": 82,
+                "maintenanceSchedule": "2024-04-17"
+            },
+            {
+                "id": "MH043",
+                "name": "Highway 43",
+                "status": "Under Construction",
+                "lastMaintenance": "2021-08-11",
+                "coordinates": [
+                    {
+                        "lat": 3.726027,
+                        "lng": 127.269941
+                    },
+                    {
+                        "lat": 3.952427,
+                        "lng": 127.367978
+                    }
+                ],
+                "trafficDensity": 35,
+                "maintenanceSchedule": "2024-07-07"
+            },
+            {
+                "id": "MH044",
+                "name": "Highway 44",
+                "status": "Good",
+                "lastMaintenance": "2020-06-04",
+                "coordinates": [
+                    {
+                        "lat": -3.60051,
+                        "lng": 95.446221
+                    },
+                    {
+                        "lat": -3.154838,
+                        "lng": 95.854479
+                    }
+                ],
+                "trafficDensity": 67,
+                "maintenanceSchedule": "2024-10-18"
+            },
+            {
+                "id": "MH045",
+                "name": "Highway 45",
+                "status": "Good",
+                "lastMaintenance": "2024-12-09",
+                "coordinates": [
+                    {
+                        "lat": 0.168103,
+                        "lng": 124.36839
+                    },
+                    {
+                        "lat": 0.397816,
+                        "lng": 124.025687
+                    }
+                ],
+                "trafficDensity": 93,
+                "maintenanceSchedule": "2024-08-02"
+            },
+            {
+                "id": "MH046",
+                "name": "Highway 46",
+                "status": "Fair",
+                "lastMaintenance": "2021-07-07",
+                "coordinates": [
+                    {
+                        "lat": -7.20918,
+                        "lng": 112.467272
+                    },
+                    {
+                        "lat": -7.415497,
+                        "lng": 112.336634
+                    }
+                ],
+                "trafficDensity": 48,
+                "maintenanceSchedule": "2024-08-20"
+            },
+            {
+                "id": "MH047",
+                "name": "Highway 47",
+                "status": "Good",
+                "lastMaintenance": "2020-08-30",
+                "coordinates": [
+                    {
+                        "lat": 0.873834,
+                        "lng": 139.917778
+                    },
+                    {
+                        "lat": 1.091888,
+                        "lng": 140.245528
+                    }
+                ],
+                "trafficDensity": 59,
+                "maintenanceSchedule": "2024-01-04"
+            },
+            {
+                "id": "MH048",
+                "name": "Highway 48",
+                "status": "Fair",
+                "lastMaintenance": "2022-02-28",
+                "coordinates": [
+                    {
+                        "lat": 4.297894,
+                        "lng": 105.126685
+                    },
+                    {
+                        "lat": 4.489561,
+                        "lng": 104.737958
+                    }
+                ],
+                "trafficDensity": 84,
+                "maintenanceSchedule": "2024-05-23"
+            },
+            {
+                "id": "MH049",
+                "name": "Highway 49",
+                "status": "Good",
+                "lastMaintenance": "2023-05-06",
+                "coordinates": [
+                    {
+                        "lat": 2.838279,
+                        "lng": 116.510946
+                    },
+                    {
+                        "lat": 3.096791,
+                        "lng": 116.567567
+                    }
+                ],
+                "trafficDensity": 34,
+                "maintenanceSchedule": "2024-10-29"
+            },
+            {
+                "id": "MH050",
+                "name": "Highway 50",
+                "status": "Good",
+                "lastMaintenance": "2024-09-24",
+                "coordinates": [
+                    {
+                        "lat": 4.022904,
+                        "lng": 105.879534
+                    },
+                    {
+                        "lat": 4.188278,
+                        "lng": 105.944592
+                    }
+                ],
+                "trafficDensity": 34,
+                "maintenanceSchedule": "2024-10-20"
+            }
+        ],
+        "arterial_roads": [
+            {
+                "id": "AR001",
+                "name": "Arterial Road 1",
+                "status": "Good",
+                "lastMaintenance": "2021-06-14",
+                "coordinates": [
+                    {
+                        "lat": -7.107083,
+                        "lng": 112.326863
+                    },
+                    {
+                        "lat": -7.155646,
+                        "lng": 112.240391
+                    }
+                ],
+                "trafficDensity": 30,
+                "maintenanceSchedule": "2024-01-28"
+            },
+            {
+                "id": "AR002",
+                "name": "Arterial Road 2",
+                "status": "Good",
+                "lastMaintenance": "2021-03-20",
+                "coordinates": [
+                    {
+                        "lat": -8.146503,
+                        "lng": 95.790388
+                    },
+                    {
+                        "lat": -8.21969,
+                        "lng": 95.928418
+                    }
+                ],
+                "trafficDensity": 21,
+                "maintenanceSchedule": "2024-09-23"
+            },
+            {
+                "id": "AR003",
+                "name": "Arterial Road 3",
+                "status": "Fair",
+                "lastMaintenance": "2023-10-16",
+                "coordinates": [
+                    {
+                        "lat": 1.881099,
+                        "lng": 120.065112
+                    },
+                    {
+                        "lat": 2.145186,
+                        "lng": 120.011083
+                    }
+                ],
+                "trafficDensity": 41,
+                "maintenanceSchedule": "2024-05-31"
+            },
+            {
+                "id": "AR004",
+                "name": "Arterial Road 4",
+                "status": "Good",
+                "lastMaintenance": "2024-02-23",
+                "coordinates": [
+                    {
+                        "lat": -9.018282,
+                        "lng": 114.995962
+                    },
+                    {
+                        "lat": -9.088262,
+                        "lng": 115.065654
+                    }
+                ],
+                "trafficDensity": 44,
+                "maintenanceSchedule": "2024-08-31"
+            },
+            {
+                "id": "AR005",
+                "name": "Arterial Road 5",
+                "status": "Fair",
+                "lastMaintenance": "2020-10-20",
+                "coordinates": [
+                    {
+                        "lat": -7.105705,
+                        "lng": 112.376508
+                    },
+                    {
+                        "lat": -7.13007,
+                        "lng": 112.594721
+                    }
+                ],
+                "trafficDensity": 30,
+                "maintenanceSchedule": "2024-01-07"
+            },
+            {
+                "id": "AR006",
+                "name": "Arterial Road 6",
+                "status": "Poor",
+                "lastMaintenance": "2021-11-12",
+                "coordinates": [
+                    {
+                        "lat": 0.075774,
+                        "lng": 135.140284
+                    },
+                    {
+                        "lat": 0.079271,
+                        "lng": 134.881377
+                    }
+                ],
+                "trafficDensity": 20,
+                "maintenanceSchedule": "2024-07-11"
+            },
+            {
+                "id": "AR007",
+                "name": "Arterial Road 7",
+                "status": "Poor",
+                "lastMaintenance": "2020-05-14",
+                "coordinates": [
+                    {
+                        "lat": 2.239114,
+                        "lng": 103.515347
+                    },
+                    {
+                        "lat": 2.006244,
+                        "lng": 103.373062
+                    }
+                ],
+                "trafficDensity": 30,
+                "maintenanceSchedule": "2024-05-08"
+            },
+            {
+                "id": "AR008",
+                "name": "Arterial Road 8",
+                "status": "Good",
+                "lastMaintenance": "2023-02-03",
+                "coordinates": [
+                    {
+                        "lat": 2.531668,
+                        "lng": 126.429577
+                    },
+                    {
+                        "lat": 2.484636,
+                        "lng": 126.666253
+                    }
+                ],
+                "trafficDensity": 41,
+                "maintenanceSchedule": "2024-02-19"
+            },
+            {
+                "id": "AR009",
+                "name": "Arterial Road 9",
+                "status": "Good",
+                "lastMaintenance": "2024-08-04",
+                "coordinates": [
+                    {
+                        "lat": -7.108726,
+                        "lng": 112.417103
+                    },
+                    {
+                        "lat": -6.833222,
+                        "lng": 112.537643
+                    }
+                ],
+                "trafficDensity": 78,
+                "maintenanceSchedule": "2024-04-01"
+            },
+            {
+                "id": "AR010",
+                "name": "Arterial Road 10",
+                "status": "Fair",
+                "lastMaintenance": "2024-08-12",
+                "coordinates": [
+                    {
+                        "lat": -5.010398,
+                        "lng": 103.238679
+                    },
+                    {
+                        "lat": -4.722573,
+                        "lng": 103.28366
+                    }
+                ],
+                "trafficDensity": 38,
+                "maintenanceSchedule": "2024-05-21"
+            },
+            {
+                "id": "AR011",
+                "name": "Arterial Road 11",
+                "status": "Fair",
+                "lastMaintenance": "2020-12-25",
+                "coordinates": [
+                    {
+                        "lat": -7.27861,
+                        "lng": 121.339122
+                    },
+                    {
+                        "lat": -6.997904,
+                        "lng": 121.292288
+                    }
+                ],
+                "trafficDensity": 67,
+                "maintenanceSchedule": "2024-07-06"
+            },
+            {
+                "id": "AR012",
+                "name": "Arterial Road 12",
+                "status": "Fair",
+                "lastMaintenance": "2021-03-28",
+                "coordinates": [
+                    {
+                        "lat": 1.08716,
+                        "lng": 135.059251
+                    },
+                    {
+                        "lat": 0.97259,
+                        "lng": 135.23538
+                    }
+                ],
+                "trafficDensity": 36,
+                "maintenanceSchedule": "2024-08-22"
+            },
+            {
+                "id": "AR013",
+                "name": "Arterial Road 13",
+                "status": "Poor",
+                "lastMaintenance": "2020-04-17",
+                "coordinates": [
+                    {
+                        "lat": -7.200153,
+                        "lng": 112.297991
+                    },
+                    {
+                        "lat": -7.140475,
+                        "lng": 112.13777
+                    }
+                ],
+                "trafficDensity": 38,
+                "maintenanceSchedule": "2024-05-02"
+            },
+            {
+                "id": "AR014",
+                "name": "Arterial Road 14",
+                "status": "Poor",
+                "lastMaintenance": "2022-11-27",
+                "coordinates": [
+                    {
+                        "lat": -7.28565,
+                        "lng": 122.888379
+                    },
+                    {
+                        "lat": -7.580365,
+                        "lng": 122.874728
+                    }
+                ],
+                "trafficDensity": 23,
+                "maintenanceSchedule": "2024-05-04"
+            },
+            {
+                "id": "AR015",
+                "name": "Arterial Road 15",
+                "status": "Poor",
+                "lastMaintenance": "2022-09-20",
+                "coordinates": [
+                    {
+                        "lat": 2.134757,
+                        "lng": 128.917949
+                    },
+                    {
+                        "lat": 2.401957,
+                        "lng": 128.718549
+                    }
+                ],
+                "trafficDensity": 79,
+                "maintenanceSchedule": "2024-09-13"
+            },
+            {
+                "id": "AR016",
+                "name": "Arterial Road 16",
+                "status": "Good",
+                "lastMaintenance": "2020-05-08",
+                "coordinates": [
+                    {
+                        "lat": -5.722409,
+                        "lng": 118.92429
+                    },
+                    {
+                        "lat": -5.807862,
+                        "lng": 119.09963
+                    }
+                ],
+                "trafficDensity": 53,
+                "maintenanceSchedule": "2024-04-08"
+            },
+            {
+                "id": "AR017",
+                "name": "Arterial Road 17",
+                "status": "Fair",
+                "lastMaintenance": "2022-02-06",
+                "coordinates": [
+                    {
+                        "lat": -7.283661,
+                        "lng": 112.354476
+                    },
+                    {
+                        "lat": -7.486572,
+                        "lng": 112.093752
+                    }
+                ],
+                "trafficDensity": 66,
+                "maintenanceSchedule": "2024-10-12"
+            },
+            {
+                "id": "AR018",
+                "name": "Arterial Road 18",
+                "status": "Good",
+                "lastMaintenance": "2021-10-03",
+                "coordinates": [
+                    {
+                        "lat": -9.185696,
+                        "lng": 102.512042
+                    },
+                    {
+                        "lat": -9.424641,
+                        "lng": 102.612454
+                    }
+                ],
+                "trafficDensity": 36,
+                "maintenanceSchedule": "2024-03-17"
+            },
+            {
+                "id": "AR019",
+                "name": "Arterial Road 19",
+                "status": "Good",
+                "lastMaintenance": "2021-06-01",
+                "coordinates": [
+                    {
+                        "lat": 4.949454,
+                        "lng": 132.746561
+                    },
+                    {
+                        "lat": 4.789487,
+                        "lng": 132.466885
+                    }
+                ],
+                "trafficDensity": 23,
+                "maintenanceSchedule": "2024-09-23"
+            },
+            {
+                "id": "AR020",
+                "name": "Arterial Road 20",
+                "status": "Fair",
+                "lastMaintenance": "2022-06-15",
+                "coordinates": [
+                    {
+                        "lat": -8.248314,
+                        "lng": 122.297008
+                    },
+                    {
+                        "lat": -8.060274,
+                        "lng": 122.148408
+                    }
+                ],
+                "trafficDensity": 78,
+                "maintenanceSchedule": "2024-11-21"
+            },
+            {
+                "id": "AR021",
+                "name": "Arterial Road 21",
+                "status": "Good",
+                "lastMaintenance": "2020-11-20",
+                "coordinates": [
+                    {
+                        "lat": -7.111975,
+                        "lng": 112.328282
+                    },
+                    {
+                        "lat": -7.147317,
+                        "lng": 112.032125
+                    }
+                ],
+                "trafficDensity": 28,
+                "maintenanceSchedule": "2024-11-27"
+            },
+            {
+                "id": "AR022",
+                "name": "Arterial Road 22",
+                "status": "Good",
+                "lastMaintenance": "2022-02-08",
+                "coordinates": [
+                    {
+                        "lat": -5.705763,
+                        "lng": 107.845978
+                    },
+                    {
+                        "lat": -5.464297,
+                        "lng": 107.881434
+                    }
+                ],
+                "trafficDensity": 75,
+                "maintenanceSchedule": "2024-06-05"
+            },
+            {
+                "id": "AR023",
+                "name": "Arterial Road 23",
+                "status": "Good",
+                "lastMaintenance": "2024-12-06",
+                "coordinates": [
+                    {
+                        "lat": -0.296303,
+                        "lng": 100.948375
+                    },
+                    {
+                        "lat": -0.373749,
+                        "lng": 100.751383
+                    }
+                ],
+                "trafficDensity": 76,
+                "maintenanceSchedule": "2024-12-13"
+            },
+            {
+                "id": "AR024",
+                "name": "Arterial Road 24",
+                "status": "Fair",
+                "lastMaintenance": "2021-03-14",
+                "coordinates": [
+                    {
+                        "lat": -3.632541,
+                        "lng": 129.352972
+                    },
+                    {
+                        "lat": -3.696356,
+                        "lng": 129.419429
+                    }
+                ],
+                "trafficDensity": 77,
+                "maintenanceSchedule": "2024-09-11"
+            },
+            {
+                "id": "AR025",
+                "name": "Arterial Road 25",
+                "status": "Fair",
+                "lastMaintenance": "2023-04-23",
+                "coordinates": [
+                    {
+                        "lat": -7.16421,
+                        "lng": 112.488879
+                    },
+                    {
+                        "lat": -7.416655,
+                        "lng": 112.51862
+                    }
+                ],
+                "trafficDensity": 35,
+                "maintenanceSchedule": "2024-03-01"
+            },
+            {
+                "id": "AR026",
+                "name": "Arterial Road 26",
+                "status": "Poor",
+                "lastMaintenance": "2023-11-19",
+                "coordinates": [
+                    {
+                        "lat": 3.423663,
+                        "lng": 119.36174
+                    },
+                    {
+                        "lat": 3.430417,
+                        "lng": 119.226369
+                    }
+                ],
+                "trafficDensity": 49,
+                "maintenanceSchedule": "2024-03-24"
+            },
+            {
+                "id": "AR027",
+                "name": "Arterial Road 27",
+                "status": "Good",
+                "lastMaintenance": "2024-01-14",
+                "coordinates": [
+                    {
+                        "lat": -7.880002,
+                        "lng": 139.755458
+                    },
+                    {
+                        "lat": -7.881753,
+                        "lng": 139.559673
+                    }
+                ],
+                "trafficDensity": 51,
+                "maintenanceSchedule": "2024-04-11"
+            },
+            {
+                "id": "AR028",
+                "name": "Arterial Road 28",
+                "status": "Good",
+                "lastMaintenance": "2021-07-31",
+                "coordinates": [
+                    {
+                        "lat": 2.432221,
+                        "lng": 139.100748
+                    },
+                    {
+                        "lat": 2.236074,
+                        "lng": 138.985605
+                    }
+                ],
+                "trafficDensity": 33,
+                "maintenanceSchedule": "2024-01-06"
+            },
+            {
+                "id": "AR029",
+                "name": "Arterial Road 29",
+                "status": "Poor",
+                "lastMaintenance": "2023-05-25",
+                "coordinates": [
+                    {
+                        "lat": -7.160262,
+                        "lng": 112.346646
+                    },
+                    {
+                        "lat": -7.392475,
+                        "lng": 112.633592
+                    }
+                ],
+                "trafficDensity": 37,
+                "maintenanceSchedule": "2024-12-02"
+            },
+            {
+                "id": "AR030",
+                "name": "Arterial Road 30",
+                "status": "Poor",
+                "lastMaintenance": "2023-10-05",
+                "coordinates": [
+                    {
+                        "lat": 3.219522,
+                        "lng": 113.366797
+                    },
+                    {
+                        "lat": 3.472855,
+                        "lng": 113.08471
+                    }
+                ],
+                "trafficDensity": 40,
+                "maintenanceSchedule": "2024-08-18"
+            },
+            {
+                "id": "AR031",
+                "name": "Arterial Road 31",
+                "status": "Good",
+                "lastMaintenance": "2020-01-14",
+                "coordinates": [
+                    {
+                        "lat": -4.128804,
+                        "lng": 113.13367
+                    },
+                    {
+                        "lat": -4.078378,
+                        "lng": 113.116708
+                    }
+                ],
+                "trafficDensity": 56,
+                "maintenanceSchedule": "2024-04-28"
+            },
+            {
+                "id": "AR032",
+                "name": "Arterial Road 32",
+                "status": "Fair",
+                "lastMaintenance": "2022-06-10",
+                "coordinates": [
+                    {
+                        "lat": -6.587917,
+                        "lng": 138.650363
+                    },
+                    {
+                        "lat": -6.473784,
+                        "lng": 138.666821
+                    }
+                ],
+                "trafficDensity": 20,
+                "maintenanceSchedule": "2024-09-22"
+            },
+            {
+                "id": "AR033",
+                "name": "Arterial Road 33",
+                "status": "Good",
+                "lastMaintenance": "2020-11-03",
+                "coordinates": [
+                    {
+                        "lat": -7.151109,
+                        "lng": 112.454883
+                    },
+                    {
+                        "lat": -6.962039,
+                        "lng": 112.655298
+                    }
+                ],
+                "trafficDensity": 53,
+                "maintenanceSchedule": "2024-01-26"
+            },
+            {
+                "id": "AR034",
+                "name": "Arterial Road 34",
+                "status": "Poor",
+                "lastMaintenance": "2023-10-27",
+                "coordinates": [
+                    {
+                        "lat": -4.889384,
+                        "lng": 96.393165
+                    },
+                    {
+                        "lat": -4.754306,
+                        "lng": 96.094698
+                    }
+                ],
+                "trafficDensity": 39,
+                "maintenanceSchedule": "2024-02-10"
+            },
+            {
+                "id": "AR035",
+                "name": "Arterial Road 35",
+                "status": "Good",
+                "lastMaintenance": "2022-07-30",
+                "coordinates": [
+                    {
+                        "lat": -9.364933,
+                        "lng": 133.161056
+                    },
+                    {
+                        "lat": -9.574666,
+                        "lng": 133.402045
+                    }
+                ],
+                "trafficDensity": 27,
+                "maintenanceSchedule": "2024-08-31"
+            },
+            {
+                "id": "AR036",
+                "name": "Arterial Road 36",
+                "status": "Fair",
+                "lastMaintenance": "2024-07-29",
+                "coordinates": [
+                    {
+                        "lat": -9.943536,
+                        "lng": 129.717464
+                    },
+                    {
+                        "lat": -10.083762,
+                        "lng": 129.465728
+                    }
+                ],
+                "trafficDensity": 61,
+                "maintenanceSchedule": "2024-05-14"
+            },
+            {
+                "id": "AR037",
+                "name": "Arterial Road 37",
+                "status": "Fair",
+                "lastMaintenance": "2024-11-08",
+                "coordinates": [
+                    {
+                        "lat": -7.232531,
+                        "lng": 112.466437
+                    },
+                    {
+                        "lat": -7.312577,
+                        "lng": 112.304943
+                    }
+                ],
+                "trafficDensity": 78,
+                "maintenanceSchedule": "2024-06-13"
+            },
+            {
+                "id": "AR038",
+                "name": "Arterial Road 38",
+                "status": "Fair",
+                "lastMaintenance": "2024-11-02",
+                "coordinates": [
+                    {
+                        "lat": 4.603269,
+                        "lng": 130.020222
+                    },
+                    {
+                        "lat": 4.554212,
+                        "lng": 130.135098
+                    }
+                ],
+                "trafficDensity": 51,
+                "maintenanceSchedule": "2024-06-11"
+            },
+            {
+                "id": "AR039",
+                "name": "Arterial Road 39",
+                "status": "Poor",
+                "lastMaintenance": "2021-05-15",
+                "coordinates": [
+                    {
+                        "lat": 4.154259,
+                        "lng": 97.057889
+                    },
+                    {
+                        "lat": 4.132681,
+                        "lng": 97.280628
+                    }
+                ],
+                "trafficDensity": 61,
+                "maintenanceSchedule": "2024-10-05"
+            },
+            {
+                "id": "AR040",
+                "name": "Arterial Road 40",
+                "status": "Good",
+                "lastMaintenance": "2023-03-08",
+                "coordinates": [
+                    {
+                        "lat": -0.888355,
+                        "lng": 118.771403
+                    },
+                    {
+                        "lat": -0.644658,
+                        "lng": 118.576118
+                    }
+                ],
+                "trafficDensity": 45,
+                "maintenanceSchedule": "2024-09-21"
+            },
+            {
+                "id": "AR041",
+                "name": "Arterial Road 41",
+                "status": "Good",
+                "lastMaintenance": "2021-06-19",
+                "coordinates": [
+                    {
+                        "lat": -7.170538,
+                        "lng": 112.440601
+                    },
+                    {
+                        "lat": -7.245849,
+                        "lng": 112.201373
+                    }
+                ],
+                "trafficDensity": 29,
+                "maintenanceSchedule": "2024-02-02"
+            },
+            {
+                "id": "AR042",
+                "name": "Arterial Road 42",
+                "status": "Fair",
+                "lastMaintenance": "2023-10-16",
+                "coordinates": [
+                    {
+                        "lat": 0.383186,
+                        "lng": 121.021077
+                    },
+                    {
+                        "lat": 0.271325,
+                        "lng": 121.250529
+                    }
+                ],
+                "trafficDensity": 38,
+                "maintenanceSchedule": "2024-01-04"
+            },
+            {
+                "id": "AR043",
+                "name": "Arterial Road 43",
+                "status": "Poor",
+                "lastMaintenance": "2022-09-12",
+                "coordinates": [
+                    {
+                        "lat": -1.393914,
+                        "lng": 102.581917
+                    },
+                    {
+                        "lat": -1.52501,
+                        "lng": 102.618896
+                    }
+                ],
+                "trafficDensity": 36,
+                "maintenanceSchedule": "2024-05-19"
+            },
+            {
+                "id": "AR044",
+                "name": "Arterial Road 44",
+                "status": "Fair",
+                "lastMaintenance": "2022-05-24",
+                "coordinates": [
+                    {
+                        "lat": 2.771825,
+                        "lng": 137.492504
+                    },
+                    {
+                        "lat": 2.546159,
+                        "lng": 137.246098
+                    }
+                ],
+                "trafficDensity": 39,
+                "maintenanceSchedule": "2024-01-30"
+            },
+            {
+                "id": "AR045",
+                "name": "Arterial Road 45",
+                "status": "Fair",
+                "lastMaintenance": "2023-08-27",
+                "coordinates": [
+                    {
+                        "lat": -7.227753,
+                        "lng": 112.452213
+                    },
+                    {
+                        "lat": -7.449377,
+                        "lng": 112.551233
+                    }
+                ],
+                "trafficDensity": 31,
+                "maintenanceSchedule": "2024-02-03"
+            },
+            {
+                "id": "AR046",
+                "name": "Arterial Road 46",
+                "status": "Fair",
+                "lastMaintenance": "2024-11-19",
+                "coordinates": [
+                    {
+                        "lat": -8.875653,
+                        "lng": 134.607038
+                    },
+                    {
+                        "lat": -8.785766,
+                        "lng": 134.657974
+                    }
+                ],
+                "trafficDensity": 45,
+                "maintenanceSchedule": "2024-01-05"
+            },
+            {
+                "id": "AR047",
+                "name": "Arterial Road 47",
+                "status": "Fair",
+                "lastMaintenance": "2020-10-21",
+                "coordinates": [
+                    {
+                        "lat": 2.820426,
+                        "lng": 110.609482
+                    },
+                    {
+                        "lat": 3.096486,
+                        "lng": 110.481378
+                    }
+                ],
+                "trafficDensity": 50,
+                "maintenanceSchedule": "2024-02-25"
+            },
+            {
+                "id": "AR048",
+                "name": "Arterial Road 48",
+                "status": "Poor",
+                "lastMaintenance": "2020-10-11",
+                "coordinates": [
+                    {
+                        "lat": 4.416033,
+                        "lng": 121.462202
+                    },
+                    {
+                        "lat": 4.139153,
+                        "lng": 121.654967
+                    }
+                ],
+                "trafficDensity": 30,
+                "maintenanceSchedule": "2024-04-05"
+            },
+            {
+                "id": "AR049",
+                "name": "Arterial Road 49",
+                "status": "Good",
+                "lastMaintenance": "2024-06-12",
+                "coordinates": [
+                    {
+                        "lat": -7.178445,
+                        "lng": 112.413311
+                    },
+                    {
+                        "lat": -7.42106,
+                        "lng": 112.394141
+                    }
+                ],
+                "trafficDensity": 34,
+                "maintenanceSchedule": "2024-11-20"
+            },
+            {
+                "id": "AR050",
+                "name": "Arterial Road 50",
+                "status": "Good",
+                "lastMaintenance": "2023-09-13",
+                "coordinates": [
+                    {
+                        "lat": -2.431791,
+                        "lng": 100.974423
+                    },
+                    {
+                        "lat": -2.188732,
+                        "lng": 100.808176
+                    }
+                ],
+                "trafficDensity": 60,
+                "maintenanceSchedule": "2024-02-04"
+            }
+        ]
+    }
+}

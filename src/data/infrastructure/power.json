@@ -1,0 +1,2908 @@
+{
+    "power_grid": {
+        "substations": [
+            {
+                "id": "SS001",
+                "name": "Substation 1",
+                "status": "Online",
+                "capacity": 137,
+                "location": {
+                    "lat": -7.092597,
+                    "lng": 112.372551
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2020-07-06"
+            },
+            {
+                "id": "SS002",
+                "name": "Substation 2",
+                "status": "Offline",
+                "capacity": 118,
+                "location": {
+                    "lat": -3.142715,
+                    "lng": 103.565098
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2021-05-12"
+            },
+            {
+                "id": "SS003",
+                "name": "Substation 3",
+                "status": "Maintenance",
+                "capacity": 141,
+                "location": {
+                    "lat": -6.807262,
+                    "lng": 104.124477
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-05-18"
+            },
+            {
+                "id": "SS004",
+                "name": "Substation 4",
+                "status": "Maintenance",
+                "capacity": 144,
+                "location": {
+                    "lat": -1.768167,
+                    "lng": 110.341107
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2020-11-19"
+            },
+            {
+                "id": "SS005",
+                "name": "Substation 5",
+                "status": "Maintenance",
+                "capacity": 92,
+                "location": {
+                    "lat": -7.05381,
+                    "lng": 139.631134
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-10-15"
+            },
+            {
+                "id": "SS006",
+                "name": "Substation 6",
+                "status": "Online",
+                "capacity": 61,
+                "location": {
+                    "lat": -7.26328,
+                    "lng": 112.401788
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-04-20"
+            },
+            {
+                "id": "SS007",
+                "name": "Substation 7",
+                "status": "Offline",
+                "capacity": 75,
+                "location": {
+                    "lat": -6.967625,
+                    "lng": 99.112812
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2020-07-03"
+            },
+            {
+                "id": "SS008",
+                "name": "Substation 8",
+                "status": "Offline",
+                "capacity": 80,
+                "location": {
+                    "lat": -0.715346,
+                    "lng": 138.59003
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-01-26"
+            },
+            {
+                "id": "SS009",
+                "name": "Substation 9",
+                "status": "Online",
+                "capacity": 100,
+                "location": {
+                    "lat": -6.178267,
+                    "lng": 108.109125
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-02-09"
+            },
+            {
+                "id": "SS010",
+                "name": "Substation 10",
+                "status": "Offline",
+                "capacity": 177,
+                "location": {
+                    "lat": -4.349454,
+                    "lng": 109.619502
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-02-28"
+            },
+            {
+                "id": "SS011",
+                "name": "Substation 11",
+                "status": "Online",
+                "capacity": 124,
+                "location": {
+                    "lat": -7.216765,
+                    "lng": 112.442376
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-03-31"
+            },
+            {
+                "id": "SS012",
+                "name": "Substation 12",
+                "status": "Maintenance",
+                "capacity": 188,
+                "location": {
+                    "lat": -5.320705,
+                    "lng": 131.270269
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-02-23"
+            },
+            {
+                "id": "SS013",
+                "name": "Substation 13",
+                "status": "Online",
+                "capacity": 153,
+                "location": {
+                    "lat": -6.617205,
+                    "lng": 101.087033
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-07-15"
+            },
+            {
+                "id": "SS014",
+                "name": "Substation 14",
+                "status": "Online",
+                "capacity": 57,
+                "location": {
+                    "lat": -4.894953,
+                    "lng": 108.253515
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-07-30"
+            },
+            {
+                "id": "SS015",
+                "name": "Substation 15",
+                "status": "Online",
+                "capacity": 124,
+                "location": {
+                    "lat": -2.357449,
+                    "lng": 110.765432
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-08-06"
+            },
+            {
+                "id": "SS016",
+                "name": "Substation 16",
+                "status": "Maintenance",
+                "capacity": 117,
+                "location": {
+                    "lat": -7.134716,
+                    "lng": 112.336612
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-08-06"
+            },
+            {
+                "id": "SS017",
+                "name": "Substation 17",
+                "status": "Offline",
+                "capacity": 109,
+                "location": {
+                    "lat": 5.829004,
+                    "lng": 126.273974
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-03-19"
+            },
+            {
+                "id": "SS018",
+                "name": "Substation 18",
+                "status": "Online",
+                "capacity": 108,
+                "location": {
+                    "lat": 5.422218,
+                    "lng": 107.589183
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-05-24"
+            },
+            {
+                "id": "SS019",
+                "name": "Substation 19",
+                "status": "Offline",
+                "capacity": 79,
+                "location": {
+                    "lat": -1.770009,
+                    "lng": 98.925445
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2021-07-07"
+            },
+            {
+                "id": "SS020",
+                "name": "Substation 20",
+                "status": "Online",
+                "capacity": 97,
+                "location": {
+                    "lat": 0.330219,
+                    "lng": 115.97294
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-12-09"
+            },
+            {
+                "id": "SS021",
+                "name": "Substation 21",
+                "status": "Maintenance",
+                "capacity": 121,
+                "location": {
+                    "lat": -7.124785,
+                    "lng": 112.329937
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-09-09"
+            },
+            {
+                "id": "SS022",
+                "name": "Substation 22",
+                "status": "Offline",
+                "capacity": 177,
+                "location": {
+                    "lat": -7.629979,
+                    "lng": 107.946824
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2020-09-09"
+            },
+            {
+                "id": "SS023",
+                "name": "Substation 23",
+                "status": "Maintenance",
+                "capacity": 108,
+                "location": {
+                    "lat": 4.975171,
+                    "lng": 102.836359
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2024-09-05"
+            },
+            {
+                "id": "SS024",
+                "name": "Substation 24",
+                "status": "Maintenance",
+                "capacity": 99,
+                "location": {
+                    "lat": -5.928029,
+                    "lng": 135.14503
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-01-14"
+            },
+            {
+                "id": "SS025",
+                "name": "Substation 25",
+                "status": "Online",
+                "capacity": 131,
+                "location": {
+                    "lat": -1.720369,
+                    "lng": 117.390499
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2020-11-30"
+            },
+            {
+                "id": "SS026",
+                "name": "Substation 26",
+                "status": "Online",
+                "capacity": 119,
+                "location": {
+                    "lat": -7.181001,
+                    "lng": 112.296032
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-04-06"
+            },
+            {
+                "id": "SS027",
+                "name": "Substation 27",
+                "status": "Online",
+                "capacity": 143,
+                "location": {
+                    "lat": 3.278492,
+                    "lng": 98.546883
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-06-05"
+            },
+            {
+                "id": "SS028",
+                "name": "Substation 28",
+                "status": "Offline",
+                "capacity": 200,
+                "location": {
+                    "lat": -9.099121,
+                    "lng": 117.649023
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-05-06"
+            },
+            {
+                "id": "SS029",
+                "name": "Substation 29",
+                "status": "Maintenance",
+                "capacity": 134,
+                "location": {
+                    "lat": 1.549378,
+                    "lng": 111.542524
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-08-29"
+            },
+            {
+                "id": "SS030",
+                "name": "Substation 30",
+                "status": "Offline",
+                "capacity": 192,
+                "location": {
+                    "lat": -0.311185,
+                    "lng": 135.034528
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-07-26"
+            },
+            {
+                "id": "SS031",
+                "name": "Substation 31",
+                "status": "Offline",
+                "capacity": 163,
+                "location": {
+                    "lat": -7.11371,
+                    "lng": 112.447882
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2021-02-17"
+            },
+            {
+                "id": "SS032",
+                "name": "Substation 32",
+                "status": "Offline",
+                "capacity": 145,
+                "location": {
+                    "lat": -3.443408,
+                    "lng": 95.026836
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-03-04"
+            },
+            {
+                "id": "SS033",
+                "name": "Substation 33",
+                "status": "Online",
+                "capacity": 116,
+                "location": {
+                    "lat": -1.984137,
+                    "lng": 135.087098
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-10-27"
+            },
+            {
+                "id": "SS034",
+                "name": "Substation 34",
+                "status": "Maintenance",
+                "capacity": 129,
+                "location": {
+                    "lat": -3.901766,
+                    "lng": 112.149182
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2021-05-26"
+            },
+            {
+                "id": "SS035",
+                "name": "Substation 35",
+                "status": "Maintenance",
+                "capacity": 132,
+                "location": {
+                    "lat": 0.109209,
+                    "lng": 133.605025
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2021-04-09"
+            },
+            {
+                "id": "SS036",
+                "name": "Substation 36",
+                "status": "Offline",
+                "capacity": 134,
+                "location": {
+                    "lat": -7.2191,
+                    "lng": 112.352589
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2024-06-18"
+            },
+            {
+                "id": "SS037",
+                "name": "Substation 37",
+                "status": "Offline",
+                "capacity": 137,
+                "location": {
+                    "lat": -3.891309,
+                    "lng": 132.152122
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2023-08-25"
+            },
+            {
+                "id": "SS038",
+                "name": "Substation 38",
+                "status": "Online",
+                "capacity": 80,
+                "location": {
+                    "lat": 2.492948,
+                    "lng": 103.803439
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-11-10"
+            },
+            {
+                "id": "SS039",
+                "name": "Substation 39",
+                "status": "Maintenance",
+                "capacity": 106,
+                "location": {
+                    "lat": -5.023816,
+                    "lng": 114.079177
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-04-17"
+            },
+            {
+                "id": "SS040",
+                "name": "Substation 40",
+                "status": "Online",
+                "capacity": 56,
+                "location": {
+                    "lat": -0.523446,
+                    "lng": 95.543531
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-12-12"
+            },
+            {
+                "id": "SS041",
+                "name": "Substation 41",
+                "status": "Maintenance",
+                "capacity": 93,
+                "location": {
+                    "lat": -7.142371,
+                    "lng": 112.461586
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-12-18"
+            },
+            {
+                "id": "SS042",
+                "name": "Substation 42",
+                "status": "Online",
+                "capacity": 105,
+                "location": {
+                    "lat": -1.215619,
+                    "lng": 100.516837
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2024-06-09"
+            },
+            {
+                "id": "SS043",
+                "name": "Substation 43",
+                "status": "Offline",
+                "capacity": 169,
+                "location": {
+                    "lat": 5.322468,
+                    "lng": 122.496928
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2021-08-06"
+            },
+            {
+                "id": "SS044",
+                "name": "Substation 44",
+                "status": "Online",
+                "capacity": 72,
+                "location": {
+                    "lat": 5.947262,
+                    "lng": 118.774573
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2021-10-03"
+            },
+            {
+                "id": "SS045",
+                "name": "Substation 45",
+                "status": "Online",
+                "capacity": 151,
+                "location": {
+                    "lat": -3.987511,
+                    "lng": 107.651468
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-06-16"
+            },
+            {
+                "id": "SS046",
+                "name": "Substation 46",
+                "status": "Maintenance",
+                "capacity": 102,
+                "location": {
+                    "lat": -7.129324,
+                    "lng": 112.344146
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-08-11"
+            },
+            {
+                "id": "SS047",
+                "name": "Substation 47",
+                "status": "Maintenance",
+                "capacity": 195,
+                "location": {
+                    "lat": 4.977381,
+                    "lng": 122.778693
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-06-11"
+            },
+            {
+                "id": "SS048",
+                "name": "Substation 48",
+                "status": "Maintenance",
+                "capacity": 92,
+                "location": {
+                    "lat": -1.079703,
+                    "lng": 109.810364
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-04-16"
+            },
+            {
+                "id": "SS049",
+                "name": "Substation 49",
+                "status": "Online",
+                "capacity": 169,
+                "location": {
+                    "lat": -1.037128,
+                    "lng": 115.949758
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-08-29"
+            },
+            {
+                "id": "SS050",
+                "name": "Substation 50",
+                "status": "Offline",
+                "capacity": 55,
+                "location": {
+                    "lat": 0.744103,
+                    "lng": 95.253231
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-03-05"
+            },
+            {
+                "id": "SS051",
+                "name": "Substation 51",
+                "status": "Online",
+                "capacity": 137,
+                "location": {
+                    "lat": -7.196342,
+                    "lng": 112.295105
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2024-08-29"
+            },
+            {
+                "id": "SS052",
+                "name": "Substation 52",
+                "status": "Online",
+                "capacity": 89,
+                "location": {
+                    "lat": -7.625727,
+                    "lng": 125.345637
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-02-05"
+            },
+            {
+                "id": "SS053",
+                "name": "Substation 53",
+                "status": "Maintenance",
+                "capacity": 179,
+                "location": {
+                    "lat": -3.697739,
+                    "lng": 124.554891
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-03-27"
+            },
+            {
+                "id": "SS054",
+                "name": "Substation 54",
+                "status": "Online",
+                "capacity": 159,
+                "location": {
+                    "lat": -8.119629,
+                    "lng": 120.287673
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2023-06-27"
+            },
+            {
+                "id": "SS055",
+                "name": "Substation 55",
+                "status": "Online",
+                "capacity": 133,
+                "location": {
+                    "lat": -8.342441,
+                    "lng": 115.806494
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-05-02"
+            },
+            {
+                "id": "SS056",
+                "name": "Substation 56",
+                "status": "Online",
+                "capacity": 62,
+                "location": {
+                    "lat": -7.11771,
+                    "lng": 112.472402
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-04-16"
+            },
+            {
+                "id": "SS057",
+                "name": "Substation 57",
+                "status": "Maintenance",
+                "capacity": 50,
+                "location": {
+                    "lat": -2.635858,
+                    "lng": 128.358208
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2023-02-14"
+            },
+            {
+                "id": "SS058",
+                "name": "Substation 58",
+                "status": "Maintenance",
+                "capacity": 58,
+                "location": {
+                    "lat": -8.767674,
+                    "lng": 116.642478
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-07-16"
+            },
+            {
+                "id": "SS059",
+                "name": "Substation 59",
+                "status": "Online",
+                "capacity": 140,
+                "location": {
+                    "lat": -3.748645,
+                    "lng": 121.472485
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-10-18"
+            },
+            {
+                "id": "SS060",
+                "name": "Substation 60",
+                "status": "Offline",
+                "capacity": 181,
+                "location": {
+                    "lat": -6.492544,
+                    "lng": 108.009114
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-02-02"
+            },
+            {
+                "id": "SS061",
+                "name": "Substation 61",
+                "status": "Offline",
+                "capacity": 98,
+                "location": {
+                    "lat": -7.232874,
+                    "lng": 112.354159
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2023-02-10"
+            },
+            {
+                "id": "SS062",
+                "name": "Substation 62",
+                "status": "Online",
+                "capacity": 109,
+                "location": {
+                    "lat": 5.546717,
+                    "lng": 101.409551
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2021-11-29"
+            },
+            {
+                "id": "SS063",
+                "name": "Substation 63",
+                "status": "Online",
+                "capacity": 185,
+                "location": {
+                    "lat": -6.845648,
+                    "lng": 95.246492
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-07-27"
+            },
+            {
+                "id": "SS064",
+                "name": "Substation 64",
+                "status": "Offline",
+                "capacity": 59,
+                "location": {
+                    "lat": 1.980231,
+                    "lng": 139.266712
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-07-17"
+            },
+            {
+                "id": "SS065",
+                "name": "Substation 65",
+                "status": "Online",
+                "capacity": 97,
+                "location": {
+                    "lat": -9.182111,
+                    "lng": 138.899048
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-01-25"
+            },
+            {
+                "id": "SS066",
+                "name": "Substation 66",
+                "status": "Maintenance",
+                "capacity": 145,
+                "location": {
+                    "lat": -7.140612,
+                    "lng": 112.463016
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2024-05-17"
+            },
+            {
+                "id": "SS067",
+                "name": "Substation 67",
+                "status": "Maintenance",
+                "capacity": 51,
+                "location": {
+                    "lat": -5.241414,
+                    "lng": 139.858119
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-06-29"
+            },
+            {
+                "id": "SS068",
+                "name": "Substation 68",
+                "status": "Online",
+                "capacity": 124,
+                "location": {
+                    "lat": -3.312631,
+                    "lng": 106.315659
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2022-03-31"
+            },
+            {
+                "id": "SS069",
+                "name": "Substation 69",
+                "status": "Online",
+                "capacity": 182,
+                "location": {
+                    "lat": -7.233311,
+                    "lng": 139.396148
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-07-18"
+            },
+            {
+                "id": "SS070",
+                "name": "Substation 70",
+                "status": "Online",
+                "capacity": 152,
+                "location": {
+                    "lat": -2.297935,
+                    "lng": 134.213075
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2023-11-07"
+            },
+            {
+                "id": "SS071",
+                "name": "Substation 71",
+                "status": "Maintenance",
+                "capacity": 135,
+                "location": {
+                    "lat": -7.127377,
+                    "lng": 112.375389
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2023-09-10"
+            },
+            {
+                "id": "SS072",
+                "name": "Substation 72",
+                "status": "Offline",
+                "capacity": 74,
+                "location": {
+                    "lat": -8.570518,
+                    "lng": 115.814906
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-05-13"
+            },
+            {
+                "id": "SS073",
+                "name": "Substation 73",
+                "status": "Offline",
+                "capacity": 59,
+                "location": {
+                    "lat": -3.112197,
+                    "lng": 95.949619
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2021-10-05"
+            },
+            {
+                "id": "SS074",
+                "name": "Substation 74",
+                "status": "Online",
+                "capacity": 185,
+                "location": {
+                    "lat": -6.612707,
+                    "lng": 126.81334
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-01-02"
+            },
+            {
+                "id": "SS075",
+                "name": "Substation 75",
+                "status": "Offline",
+                "capacity": 66,
+                "location": {
+                    "lat": -9.058911,
+                    "lng": 95.773986
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2020-12-04"
+            },
+            {
+                "id": "SS076",
+                "name": "Substation 76",
+                "status": "Online",
+                "capacity": 84,
+                "location": {
+                    "lat": -7.090582,
+                    "lng": 112.431081
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-08-01"
+            },
+            {
+                "id": "SS077",
+                "name": "Substation 77",
+                "status": "Online",
+                "capacity": 91,
+                "location": {
+                    "lat": 4.976479,
+                    "lng": 136.287819
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-06-04"
+            },
+            {
+                "id": "SS078",
+                "name": "Substation 78",
+                "status": "Offline",
+                "capacity": 58,
+                "location": {
+                    "lat": -3.4433,
+                    "lng": 102.654704
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-04-14"
+            },
+            {
+                "id": "SS079",
+                "name": "Substation 79",
+                "status": "Offline",
+                "capacity": 184,
+                "location": {
+                    "lat": -7.844545,
+                    "lng": 96.909156
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-07-10"
+            },
+            {
+                "id": "SS080",
+                "name": "Substation 80",
+                "status": "Offline",
+                "capacity": 114,
+                "location": {
+                    "lat": -6.693816,
+                    "lng": 138.228582
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2020-03-24"
+            },
+            {
+                "id": "SS081",
+                "name": "Substation 81",
+                "status": "Maintenance",
+                "capacity": 178,
+                "location": {
+                    "lat": -7.100313,
+                    "lng": 112.397778
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2022-12-05"
+            },
+            {
+                "id": "SS082",
+                "name": "Substation 82",
+                "status": "Online",
+                "capacity": 187,
+                "location": {
+                    "lat": -2.810101,
+                    "lng": 104.219113
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2021-09-18"
+            },
+            {
+                "id": "SS083",
+                "name": "Substation 83",
+                "status": "Offline",
+                "capacity": 130,
+                "location": {
+                    "lat": -3.601556,
+                    "lng": 128.857574
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-10-20"
+            },
+            {
+                "id": "SS084",
+                "name": "Substation 84",
+                "status": "Maintenance",
+                "capacity": 67,
+                "location": {
+                    "lat": -1.66779,
+                    "lng": 128.180483
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-04-03"
+            },
+            {
+                "id": "SS085",
+                "name": "Substation 85",
+                "status": "Online",
+                "capacity": 152,
+                "location": {
+                    "lat": -6.118218,
+                    "lng": 111.656586
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2023-08-29"
+            },
+            {
+                "id": "SS086",
+                "name": "Substation 86",
+                "status": "Online",
+                "capacity": 115,
+                "location": {
+                    "lat": -7.249582,
+                    "lng": 112.313484
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-06-03"
+            },
+            {
+                "id": "SS087",
+                "name": "Substation 87",
+                "status": "Online",
+                "capacity": 189,
+                "location": {
+                    "lat": 0.548604,
+                    "lng": 140.001175
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-03-03"
+            },
+            {
+                "id": "SS088",
+                "name": "Substation 88",
+                "status": "Offline",
+                "capacity": 79,
+                "location": {
+                    "lat": -9.527504,
+                    "lng": 112.137892
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-01-18"
+            },
+            {
+                "id": "SS089",
+                "name": "Substation 89",
+                "status": "Offline",
+                "capacity": 140,
+                "location": {
+                    "lat": -9.762823,
+                    "lng": 112.048769
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2023-08-10"
+            },
+            {
+                "id": "SS090",
+                "name": "Substation 90",
+                "status": "Online",
+                "capacity": 55,
+                "location": {
+                    "lat": -5.632153,
+                    "lng": 130.782718
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-11-24"
+            },
+            {
+                "id": "SS091",
+                "name": "Substation 91",
+                "status": "Offline",
+                "capacity": 77,
+                "location": {
+                    "lat": -7.156794,
+                    "lng": 112.422726
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2024-08-01"
+            },
+            {
+                "id": "SS092",
+                "name": "Substation 92",
+                "status": "Online",
+                "capacity": 183,
+                "location": {
+                    "lat": 1.294391,
+                    "lng": 125.904551
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-03-06"
+            },
+            {
+                "id": "SS093",
+                "name": "Substation 93",
+                "status": "Offline",
+                "capacity": 77,
+                "location": {
+                    "lat": -6.824049,
+                    "lng": 121.181782
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2024-03-29"
+            },
+            {
+                "id": "SS094",
+                "name": "Substation 94",
+                "status": "Maintenance",
+                "capacity": 143,
+                "location": {
+                    "lat": -6.177671,
+                    "lng": 118.462792
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-04-01"
+            },
+            {
+                "id": "SS095",
+                "name": "Substation 95",
+                "status": "Offline",
+                "capacity": 55,
+                "location": {
+                    "lat": -2.211154,
+                    "lng": 117.664162
+                },
+                "voltage": "400kV",
+                "lastMaintenance": "2020-07-25"
+            },
+            {
+                "id": "SS096",
+                "name": "Substation 96",
+                "status": "Online",
+                "capacity": 190,
+                "location": {
+                    "lat": -7.184047,
+                    "lng": 112.441601
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2023-01-12"
+            },
+            {
+                "id": "SS097",
+                "name": "Substation 97",
+                "status": "Offline",
+                "capacity": 98,
+                "location": {
+                    "lat": -0.508472,
+                    "lng": 123.701702
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2020-10-06"
+            },
+            {
+                "id": "SS098",
+                "name": "Substation 98",
+                "status": "Offline",
+                "capacity": 160,
+                "location": {
+                    "lat": 0.327317,
+                    "lng": 106.419548
+                },
+                "voltage": "150kV",
+                "lastMaintenance": "2020-07-07"
+            },
+            {
+                "id": "SS099",
+                "name": "Substation 99",
+                "status": "Online",
+                "capacity": 180,
+                "location": {
+                    "lat": 5.525631,
+                    "lng": 120.622679
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2022-07-01"
+            },
+            {
+                "id": "SS100",
+                "name": "Substation 100",
+                "status": "Offline",
+                "capacity": 144,
+                "location": {
+                    "lat": 4.209855,
+                    "lng": 122.953932
+                },
+                "voltage": "275kV",
+                "lastMaintenance": "2021-11-08"
+            }
+        ],
+        "transmission_lines": [
+            {
+                "id": "TL001",
+                "status": "Under Repair",
+                "capacity": 138,
+                "coordinates": [
+                    {
+                        "lat": -4.611663,
+                        "lng": 109.732969
+                    },
+                    {
+                        "lat": -4.61923,
+                        "lng": 109.673964
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2021-09-02"
+            },
+            {
+                "id": "TL002",
+                "status": "Operational",
+                "capacity": 118,
+                "coordinates": [
+                    {
+                        "lat": 0.960613,
+                        "lng": 113.664579
+                    },
+                    {
+                        "lat": 0.992045,
+                        "lng": 113.761798
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-10-21"
+            },
+            {
+                "id": "TL003",
+                "status": "Operational",
+                "capacity": 96,
+                "coordinates": [
+                    {
+                        "lat": -5.506365,
+                        "lng": 96.589245
+                    },
+                    {
+                        "lat": -5.553698,
+                        "lng": 96.541043
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-06-14"
+            },
+            {
+                "id": "TL004",
+                "status": "Offline",
+                "capacity": 208,
+                "coordinates": [
+                    {
+                        "lat": -6.622112,
+                        "lng": 95.889837
+                    },
+                    {
+                        "lat": -6.668376,
+                        "lng": 95.972096
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-03-15"
+            },
+            {
+                "id": "TL005",
+                "status": "Under Repair",
+                "capacity": 189,
+                "coordinates": [
+                    {
+                        "lat": 0.578776,
+                        "lng": 114.662842
+                    },
+                    {
+                        "lat": 0.583144,
+                        "lng": 114.57365
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2023-04-09"
+            },
+            {
+                "id": "TL006",
+                "status": "Under Repair",
+                "capacity": 184,
+                "coordinates": [
+                    {
+                        "lat": 1.395755,
+                        "lng": 112.808137
+                    },
+                    {
+                        "lat": 1.320999,
+                        "lng": 112.753613
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-12-01"
+            },
+            {
+                "id": "TL007",
+                "status": "Under Repair",
+                "capacity": 192,
+                "coordinates": [
+                    {
+                        "lat": 4.562834,
+                        "lng": 139.504269
+                    },
+                    {
+                        "lat": 4.546734,
+                        "lng": 139.458043
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2022-12-23"
+            },
+            {
+                "id": "TL008",
+                "status": "Operational",
+                "capacity": 192,
+                "coordinates": [
+                    {
+                        "lat": -8.930082,
+                        "lng": 113.017847
+                    },
+                    {
+                        "lat": -8.851393,
+                        "lng": 113.016069
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-09-28"
+            },
+            {
+                "id": "TL009",
+                "status": "Under Repair",
+                "capacity": 112,
+                "coordinates": [
+                    {
+                        "lat": 0.414022,
+                        "lng": 127.215711
+                    },
+                    {
+                        "lat": 0.471435,
+                        "lng": 127.119966
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2020-05-14"
+            },
+            {
+                "id": "TL010",
+                "status": "Under Repair",
+                "capacity": 227,
+                "coordinates": [
+                    {
+                        "lat": -2.599363,
+                        "lng": 117.16837
+                    },
+                    {
+                        "lat": -2.506547,
+                        "lng": 117.077642
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-10-23"
+            },
+            {
+                "id": "TL011",
+                "status": "Operational",
+                "capacity": 206,
+                "coordinates": [
+                    {
+                        "lat": 0.749752,
+                        "lng": 111.732094
+                    },
+                    {
+                        "lat": 0.816946,
+                        "lng": 111.680151
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-09-29"
+            },
+            {
+                "id": "TL012",
+                "status": "Under Repair",
+                "capacity": 111,
+                "coordinates": [
+                    {
+                        "lat": 0.667562,
+                        "lng": 133.952818
+                    },
+                    {
+                        "lat": 0.651974,
+                        "lng": 133.922472
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-03-02"
+            },
+            {
+                "id": "TL013",
+                "status": "Operational",
+                "capacity": 95,
+                "coordinates": [
+                    {
+                        "lat": 0.217892,
+                        "lng": 135.87015
+                    },
+                    {
+                        "lat": 0.270027,
+                        "lng": 135.89045
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-01-09"
+            },
+            {
+                "id": "TL014",
+                "status": "Operational",
+                "capacity": 144,
+                "coordinates": [
+                    {
+                        "lat": -0.523902,
+                        "lng": 111.01291
+                    },
+                    {
+                        "lat": -0.565241,
+                        "lng": 110.938328
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-02-10"
+            },
+            {
+                "id": "TL015",
+                "status": "Offline",
+                "capacity": 193,
+                "coordinates": [
+                    {
+                        "lat": -7.148431,
+                        "lng": 110.875571
+                    },
+                    {
+                        "lat": -7.177956,
+                        "lng": 110.822586
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2020-10-19"
+            },
+            {
+                "id": "TL016",
+                "status": "Operational",
+                "capacity": 158,
+                "coordinates": [
+                    {
+                        "lat": -6.179031,
+                        "lng": 123.461357
+                    },
+                    {
+                        "lat": -6.160237,
+                        "lng": 123.553414
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-04-06"
+            },
+            {
+                "id": "TL017",
+                "status": "Offline",
+                "capacity": 213,
+                "coordinates": [
+                    {
+                        "lat": -3.833403,
+                        "lng": 113.38127
+                    },
+                    {
+                        "lat": -3.770108,
+                        "lng": 113.388803
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-04-17"
+            },
+            {
+                "id": "TL018",
+                "status": "Operational",
+                "capacity": 178,
+                "coordinates": [
+                    {
+                        "lat": 5.017214,
+                        "lng": 105.149093
+                    },
+                    {
+                        "lat": 5.019617,
+                        "lng": 105.195901
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-01-29"
+            },
+            {
+                "id": "TL019",
+                "status": "Offline",
+                "capacity": 127,
+                "coordinates": [
+                    {
+                        "lat": 0.640573,
+                        "lng": 126.541692
+                    },
+                    {
+                        "lat": 0.639215,
+                        "lng": 126.579548
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-03-13"
+            },
+            {
+                "id": "TL020",
+                "status": "Under Repair",
+                "capacity": 234,
+                "coordinates": [
+                    {
+                        "lat": -4.637449,
+                        "lng": 96.627258
+                    },
+                    {
+                        "lat": -4.732333,
+                        "lng": 96.619775
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2024-07-16"
+            },
+            {
+                "id": "TL021",
+                "status": "Offline",
+                "capacity": 179,
+                "coordinates": [
+                    {
+                        "lat": -0.355386,
+                        "lng": 111.60746
+                    },
+                    {
+                        "lat": -0.277007,
+                        "lng": 111.686136
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-10-23"
+            },
+            {
+                "id": "TL022",
+                "status": "Under Repair",
+                "capacity": 225,
+                "coordinates": [
+                    {
+                        "lat": -8.304604,
+                        "lng": 101.02367
+                    },
+                    {
+                        "lat": -8.304659,
+                        "lng": 101.073768
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-02-08"
+            },
+            {
+                "id": "TL023",
+                "status": "Operational",
+                "capacity": 249,
+                "coordinates": [
+                    {
+                        "lat": 2.401909,
+                        "lng": 108.213524
+                    },
+                    {
+                        "lat": 2.49621,
+                        "lng": 108.275625
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-09-13"
+            },
+            {
+                "id": "TL024",
+                "status": "Offline",
+                "capacity": 100,
+                "coordinates": [
+                    {
+                        "lat": -4.107827,
+                        "lng": 108.873434
+                    },
+                    {
+                        "lat": -4.197289,
+                        "lng": 108.949293
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-03-29"
+            },
+            {
+                "id": "TL025",
+                "status": "Under Repair",
+                "capacity": 109,
+                "coordinates": [
+                    {
+                        "lat": -0.622671,
+                        "lng": 133.750397
+                    },
+                    {
+                        "lat": -0.533151,
+                        "lng": 133.815914
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-08-11"
+            },
+            {
+                "id": "TL026",
+                "status": "Offline",
+                "capacity": 98,
+                "coordinates": [
+                    {
+                        "lat": -6.467391,
+                        "lng": 124.026979
+                    },
+                    {
+                        "lat": -6.444773,
+                        "lng": 124.101913
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-02-08"
+            },
+            {
+                "id": "TL027",
+                "status": "Under Repair",
+                "capacity": 188,
+                "coordinates": [
+                    {
+                        "lat": -2.05599,
+                        "lng": 119.469627
+                    },
+                    {
+                        "lat": -1.995905,
+                        "lng": 119.423978
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-08-28"
+            },
+            {
+                "id": "TL028",
+                "status": "Operational",
+                "capacity": 99,
+                "coordinates": [
+                    {
+                        "lat": -0.704307,
+                        "lng": 117.112842
+                    },
+                    {
+                        "lat": -0.610911,
+                        "lng": 117.110105
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-11-25"
+            },
+            {
+                "id": "TL029",
+                "status": "Operational",
+                "capacity": 133,
+                "coordinates": [
+                    {
+                        "lat": -8.978377,
+                        "lng": 103.766404
+                    },
+                    {
+                        "lat": -9.020428,
+                        "lng": 103.788915
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-08-05"
+            },
+            {
+                "id": "TL030",
+                "status": "Operational",
+                "capacity": 185,
+                "coordinates": [
+                    {
+                        "lat": 3.929803,
+                        "lng": 102.499454
+                    },
+                    {
+                        "lat": 3.957495,
+                        "lng": 102.402553
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2020-09-13"
+            },
+            {
+                "id": "TL031",
+                "status": "Operational",
+                "capacity": 154,
+                "coordinates": [
+                    {
+                        "lat": 3.873669,
+                        "lng": 102.870967
+                    },
+                    {
+                        "lat": 3.85684,
+                        "lng": 102.813871
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2023-06-03"
+            },
+            {
+                "id": "TL032",
+                "status": "Operational",
+                "capacity": 217,
+                "coordinates": [
+                    {
+                        "lat": -8.377322,
+                        "lng": 133.505115
+                    },
+                    {
+                        "lat": -8.325235,
+                        "lng": 133.517644
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2024-02-17"
+            },
+            {
+                "id": "TL033",
+                "status": "Offline",
+                "capacity": 167,
+                "coordinates": [
+                    {
+                        "lat": -9.855281,
+                        "lng": 131.85441
+                    },
+                    {
+                        "lat": -9.887554,
+                        "lng": 131.824892
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-05-01"
+            },
+            {
+                "id": "TL034",
+                "status": "Offline",
+                "capacity": 180,
+                "coordinates": [
+                    {
+                        "lat": 2.971789,
+                        "lng": 133.111377
+                    },
+                    {
+                        "lat": 2.982561,
+                        "lng": 133.09948
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2020-10-13"
+            },
+            {
+                "id": "TL035",
+                "status": "Offline",
+                "capacity": 102,
+                "coordinates": [
+                    {
+                        "lat": -1.102434,
+                        "lng": 131.067759
+                    },
+                    {
+                        "lat": -1.157675,
+                        "lng": 131.048838
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-11-02"
+            },
+            {
+                "id": "TL036",
+                "status": "Operational",
+                "capacity": 237,
+                "coordinates": [
+                    {
+                        "lat": -5.211741,
+                        "lng": 110.938569
+                    },
+                    {
+                        "lat": -5.218954,
+                        "lng": 111.032765
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-08-28"
+            },
+            {
+                "id": "TL037",
+                "status": "Offline",
+                "capacity": 164,
+                "coordinates": [
+                    {
+                        "lat": -7.548933,
+                        "lng": 140.969742
+                    },
+                    {
+                        "lat": -7.554039,
+                        "lng": 140.987641
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-10-28"
+            },
+            {
+                "id": "TL038",
+                "status": "Operational",
+                "capacity": 234,
+                "coordinates": [
+                    {
+                        "lat": -1.990508,
+                        "lng": 106.828628
+                    },
+                    {
+                        "lat": -1.912907,
+                        "lng": 106.813891
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2024-09-08"
+            },
+            {
+                "id": "TL039",
+                "status": "Operational",
+                "capacity": 189,
+                "coordinates": [
+                    {
+                        "lat": -4.161212,
+                        "lng": 113.587318
+                    },
+                    {
+                        "lat": -4.061724,
+                        "lng": 113.590938
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-07-25"
+            },
+            {
+                "id": "TL040",
+                "status": "Operational",
+                "capacity": 185,
+                "coordinates": [
+                    {
+                        "lat": 0.019998,
+                        "lng": 98.501047
+                    },
+                    {
+                        "lat": 0.105681,
+                        "lng": 98.521018
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-04-24"
+            },
+            {
+                "id": "TL041",
+                "status": "Under Repair",
+                "capacity": 95,
+                "coordinates": [
+                    {
+                        "lat": -6.080315,
+                        "lng": 118.557087
+                    },
+                    {
+                        "lat": -6.090105,
+                        "lng": 118.562584
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-01-01"
+            },
+            {
+                "id": "TL042",
+                "status": "Offline",
+                "capacity": 118,
+                "coordinates": [
+                    {
+                        "lat": 2.583796,
+                        "lng": 117.438557
+                    },
+                    {
+                        "lat": 2.550377,
+                        "lng": 117.455247
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-08-26"
+            },
+            {
+                "id": "TL043",
+                "status": "Offline",
+                "capacity": 217,
+                "coordinates": [
+                    {
+                        "lat": -9.838747,
+                        "lng": 131.680632
+                    },
+                    {
+                        "lat": -9.809115,
+                        "lng": 131.707666
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-05-02"
+            },
+            {
+                "id": "TL044",
+                "status": "Under Repair",
+                "capacity": 190,
+                "coordinates": [
+                    {
+                        "lat": -0.65577,
+                        "lng": 96.03278
+                    },
+                    {
+                        "lat": -0.598028,
+                        "lng": 95.985445
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2022-12-11"
+            },
+            {
+                "id": "TL045",
+                "status": "Operational",
+                "capacity": 137,
+                "coordinates": [
+                    {
+                        "lat": 2.350924,
+                        "lng": 100.317687
+                    },
+                    {
+                        "lat": 2.413187,
+                        "lng": 100.281026
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-01-04"
+            },
+            {
+                "id": "TL046",
+                "status": "Offline",
+                "capacity": 225,
+                "coordinates": [
+                    {
+                        "lat": -4.05655,
+                        "lng": 122.892301
+                    },
+                    {
+                        "lat": -4.082115,
+                        "lng": 122.895675
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-03-03"
+            },
+            {
+                "id": "TL047",
+                "status": "Offline",
+                "capacity": 183,
+                "coordinates": [
+                    {
+                        "lat": -3.849766,
+                        "lng": 108.916966
+                    },
+                    {
+                        "lat": -3.832439,
+                        "lng": 109.008772
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2022-01-31"
+            },
+            {
+                "id": "TL048",
+                "status": "Operational",
+                "capacity": 147,
+                "coordinates": [
+                    {
+                        "lat": -1.090032,
+                        "lng": 106.484831
+                    },
+                    {
+                        "lat": -1.101378,
+                        "lng": 106.532753
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-02-28"
+            },
+            {
+                "id": "TL049",
+                "status": "Under Repair",
+                "capacity": 218,
+                "coordinates": [
+                    {
+                        "lat": 2.670806,
+                        "lng": 133.745881
+                    },
+                    {
+                        "lat": 2.711165,
+                        "lng": 133.75469
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2021-12-04"
+            },
+            {
+                "id": "TL050",
+                "status": "Under Repair",
+                "capacity": 126,
+                "coordinates": [
+                    {
+                        "lat": 2.766795,
+                        "lng": 102.52858
+                    },
+                    {
+                        "lat": 2.719848,
+                        "lng": 102.485114
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-10-31"
+            },
+            {
+                "id": "TL051",
+                "status": "Operational",
+                "capacity": 98,
+                "coordinates": [
+                    {
+                        "lat": -5.695069,
+                        "lng": 131.130944
+                    },
+                    {
+                        "lat": -5.600633,
+                        "lng": 131.228759
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-01-17"
+            },
+            {
+                "id": "TL052",
+                "status": "Under Repair",
+                "capacity": 141,
+                "coordinates": [
+                    {
+                        "lat": -4.79413,
+                        "lng": 95.17997
+                    },
+                    {
+                        "lat": -4.774654,
+                        "lng": 95.173938
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2020-12-20"
+            },
+            {
+                "id": "TL053",
+                "status": "Under Repair",
+                "capacity": 227,
+                "coordinates": [
+                    {
+                        "lat": -7.689175,
+                        "lng": 110.378817
+                    },
+                    {
+                        "lat": -7.733967,
+                        "lng": 110.329155
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-07-18"
+            },
+            {
+                "id": "TL054",
+                "status": "Operational",
+                "capacity": 195,
+                "coordinates": [
+                    {
+                        "lat": -0.414924,
+                        "lng": 111.672149
+                    },
+                    {
+                        "lat": -0.374694,
+                        "lng": 111.67441
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2021-06-15"
+            },
+            {
+                "id": "TL055",
+                "status": "Offline",
+                "capacity": 223,
+                "coordinates": [
+                    {
+                        "lat": 4.244629,
+                        "lng": 104.019524
+                    },
+                    {
+                        "lat": 4.314989,
+                        "lng": 104.062249
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-10-18"
+            },
+            {
+                "id": "TL056",
+                "status": "Offline",
+                "capacity": 248,
+                "coordinates": [
+                    {
+                        "lat": -0.04988,
+                        "lng": 101.192804
+                    },
+                    {
+                        "lat": -0.067799,
+                        "lng": 101.269349
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2021-05-31"
+            },
+            {
+                "id": "TL057",
+                "status": "Offline",
+                "capacity": 100,
+                "coordinates": [
+                    {
+                        "lat": -0.320046,
+                        "lng": 131.951071
+                    },
+                    {
+                        "lat": -0.329154,
+                        "lng": 131.917572
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-12-03"
+            },
+            {
+                "id": "TL058",
+                "status": "Under Repair",
+                "capacity": 247,
+                "coordinates": [
+                    {
+                        "lat": 3.959674,
+                        "lng": 134.650093
+                    },
+                    {
+                        "lat": 3.931297,
+                        "lng": 134.601274
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-08-28"
+            },
+            {
+                "id": "TL059",
+                "status": "Under Repair",
+                "capacity": 186,
+                "coordinates": [
+                    {
+                        "lat": -8.308328,
+                        "lng": 116.092014
+                    },
+                    {
+                        "lat": -8.215882,
+                        "lng": 116.153622
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-10-03"
+            },
+            {
+                "id": "TL060",
+                "status": "Offline",
+                "capacity": 99,
+                "coordinates": [
+                    {
+                        "lat": -3.057744,
+                        "lng": 139.647971
+                    },
+                    {
+                        "lat": -3.126188,
+                        "lng": 139.698832
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2023-12-11"
+            },
+            {
+                "id": "TL061",
+                "status": "Under Repair",
+                "capacity": 126,
+                "coordinates": [
+                    {
+                        "lat": 4.069003,
+                        "lng": 114.144865
+                    },
+                    {
+                        "lat": 4.061036,
+                        "lng": 114.117335
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-08-04"
+            },
+            {
+                "id": "TL062",
+                "status": "Under Repair",
+                "capacity": 240,
+                "coordinates": [
+                    {
+                        "lat": -3.111513,
+                        "lng": 123.798056
+                    },
+                    {
+                        "lat": -3.204201,
+                        "lng": 123.739638
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-09-09"
+            },
+            {
+                "id": "TL063",
+                "status": "Offline",
+                "capacity": 93,
+                "coordinates": [
+                    {
+                        "lat": 4.771258,
+                        "lng": 125.459673
+                    },
+                    {
+                        "lat": 4.691231,
+                        "lng": 125.482788
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-11-20"
+            },
+            {
+                "id": "TL064",
+                "status": "Offline",
+                "capacity": 146,
+                "coordinates": [
+                    {
+                        "lat": -0.122546,
+                        "lng": 116.15995
+                    },
+                    {
+                        "lat": -0.16803,
+                        "lng": 116.225817
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2024-08-08"
+            },
+            {
+                "id": "TL065",
+                "status": "Operational",
+                "capacity": 157,
+                "coordinates": [
+                    {
+                        "lat": -4.403139,
+                        "lng": 95.836221
+                    },
+                    {
+                        "lat": -4.462339,
+                        "lng": 95.762068
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-03-11"
+            },
+            {
+                "id": "TL066",
+                "status": "Operational",
+                "capacity": 109,
+                "coordinates": [
+                    {
+                        "lat": -8.75552,
+                        "lng": 131.07134
+                    },
+                    {
+                        "lat": -8.785058,
+                        "lng": 131.125736
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-06-16"
+            },
+            {
+                "id": "TL067",
+                "status": "Operational",
+                "capacity": 195,
+                "coordinates": [
+                    {
+                        "lat": 2.016237,
+                        "lng": 110.791805
+                    },
+                    {
+                        "lat": 1.947936,
+                        "lng": 110.849014
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-09-27"
+            },
+            {
+                "id": "TL068",
+                "status": "Operational",
+                "capacity": 199,
+                "coordinates": [
+                    {
+                        "lat": 5.114983,
+                        "lng": 139.111393
+                    },
+                    {
+                        "lat": 5.076499,
+                        "lng": 139.202587
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-04-16"
+            },
+            {
+                "id": "TL069",
+                "status": "Offline",
+                "capacity": 181,
+                "coordinates": [
+                    {
+                        "lat": 4.295813,
+                        "lng": 107.632151
+                    },
+                    {
+                        "lat": 4.353437,
+                        "lng": 107.535411
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-02-18"
+            },
+            {
+                "id": "TL070",
+                "status": "Operational",
+                "capacity": 239,
+                "coordinates": [
+                    {
+                        "lat": -2.439527,
+                        "lng": 107.447291
+                    },
+                    {
+                        "lat": -2.482654,
+                        "lng": 107.357581
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2022-02-28"
+            },
+            {
+                "id": "TL071",
+                "status": "Offline",
+                "capacity": 194,
+                "coordinates": [
+                    {
+                        "lat": -0.558076,
+                        "lng": 108.741566
+                    },
+                    {
+                        "lat": -0.495198,
+                        "lng": 108.753584
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-05-15"
+            },
+            {
+                "id": "TL072",
+                "status": "Operational",
+                "capacity": 169,
+                "coordinates": [
+                    {
+                        "lat": -9.031463,
+                        "lng": 132.675991
+                    },
+                    {
+                        "lat": -9.130475,
+                        "lng": 132.625354
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2021-06-27"
+            },
+            {
+                "id": "TL073",
+                "status": "Under Repair",
+                "capacity": 159,
+                "coordinates": [
+                    {
+                        "lat": 2.056528,
+                        "lng": 120.252629
+                    },
+                    {
+                        "lat": 2.109149,
+                        "lng": 120.230101
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2024-03-12"
+            },
+            {
+                "id": "TL074",
+                "status": "Under Repair",
+                "capacity": 227,
+                "coordinates": [
+                    {
+                        "lat": 0.481171,
+                        "lng": 121.239959
+                    },
+                    {
+                        "lat": 0.537804,
+                        "lng": 121.203875
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2024-11-21"
+            },
+            {
+                "id": "TL075",
+                "status": "Offline",
+                "capacity": 200,
+                "coordinates": [
+                    {
+                        "lat": 3.002454,
+                        "lng": 108.019739
+                    },
+                    {
+                        "lat": 3.081875,
+                        "lng": 107.963171
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2024-09-05"
+            },
+            {
+                "id": "TL076",
+                "status": "Offline",
+                "capacity": 96,
+                "coordinates": [
+                    {
+                        "lat": -7.306482,
+                        "lng": 139.637071
+                    },
+                    {
+                        "lat": -7.354203,
+                        "lng": 139.713512
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-08-10"
+            },
+            {
+                "id": "TL077",
+                "status": "Operational",
+                "capacity": 87,
+                "coordinates": [
+                    {
+                        "lat": -2.410124,
+                        "lng": 97.059012
+                    },
+                    {
+                        "lat": -2.342495,
+                        "lng": 97.090668
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2020-01-03"
+            },
+            {
+                "id": "TL078",
+                "status": "Under Repair",
+                "capacity": 152,
+                "coordinates": [
+                    {
+                        "lat": -3.112639,
+                        "lng": 134.104652
+                    },
+                    {
+                        "lat": -3.18682,
+                        "lng": 134.060829
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-08-25"
+            },
+            {
+                "id": "TL079",
+                "status": "Operational",
+                "capacity": 90,
+                "coordinates": [
+                    {
+                        "lat": -4.921167,
+                        "lng": 109.816148
+                    },
+                    {
+                        "lat": -4.890196,
+                        "lng": 109.764018
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2023-09-23"
+            },
+            {
+                "id": "TL080",
+                "status": "Offline",
+                "capacity": 146,
+                "coordinates": [
+                    {
+                        "lat": 1.906262,
+                        "lng": 113.967268
+                    },
+                    {
+                        "lat": 1.893682,
+                        "lng": 113.872053
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-12-19"
+            },
+            {
+                "id": "TL081",
+                "status": "Operational",
+                "capacity": 101,
+                "coordinates": [
+                    {
+                        "lat": -3.132273,
+                        "lng": 110.704008
+                    },
+                    {
+                        "lat": -3.101642,
+                        "lng": 110.73131
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2020-09-07"
+            },
+            {
+                "id": "TL082",
+                "status": "Operational",
+                "capacity": 250,
+                "coordinates": [
+                    {
+                        "lat": -1.43242,
+                        "lng": 111.38735
+                    },
+                    {
+                        "lat": -1.463899,
+                        "lng": 111.431817
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2020-12-06"
+            },
+            {
+                "id": "TL083",
+                "status": "Under Repair",
+                "capacity": 199,
+                "coordinates": [
+                    {
+                        "lat": 5.81011,
+                        "lng": 133.725092
+                    },
+                    {
+                        "lat": 5.8099,
+                        "lng": 133.630473
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-03-02"
+            },
+            {
+                "id": "TL084",
+                "status": "Operational",
+                "capacity": 247,
+                "coordinates": [
+                    {
+                        "lat": -1.116758,
+                        "lng": 124.98529
+                    },
+                    {
+                        "lat": -1.047318,
+                        "lng": 125.073985
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-04-19"
+            },
+            {
+                "id": "TL085",
+                "status": "Under Repair",
+                "capacity": 209,
+                "coordinates": [
+                    {
+                        "lat": -8.970607,
+                        "lng": 107.755797
+                    },
+                    {
+                        "lat": -8.933941,
+                        "lng": 107.812113
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2021-10-31"
+            },
+            {
+                "id": "TL086",
+                "status": "Under Repair",
+                "capacity": 163,
+                "coordinates": [
+                    {
+                        "lat": -1.384169,
+                        "lng": 124.666385
+                    },
+                    {
+                        "lat": -1.341232,
+                        "lng": 124.568745
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2024-06-23"
+            },
+            {
+                "id": "TL087",
+                "status": "Offline",
+                "capacity": 144,
+                "coordinates": [
+                    {
+                        "lat": -8.033811,
+                        "lng": 126.858036
+                    },
+                    {
+                        "lat": -8.041513,
+                        "lng": 126.779173
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2022-07-22"
+            },
+            {
+                "id": "TL088",
+                "status": "Operational",
+                "capacity": 242,
+                "coordinates": [
+                    {
+                        "lat": -5.598961,
+                        "lng": 114.376783
+                    },
+                    {
+                        "lat": -5.577792,
+                        "lng": 114.353296
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-11-03"
+            },
+            {
+                "id": "TL089",
+                "status": "Under Repair",
+                "capacity": 247,
+                "coordinates": [
+                    {
+                        "lat": 5.553319,
+                        "lng": 125.170687
+                    },
+                    {
+                        "lat": 5.58332,
+                        "lng": 125.089636
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2022-02-19"
+            },
+            {
+                "id": "TL090",
+                "status": "Offline",
+                "capacity": 180,
+                "coordinates": [
+                    {
+                        "lat": 4.457148,
+                        "lng": 105.91893
+                    },
+                    {
+                        "lat": 4.380998,
+                        "lng": 105.86367
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-12-16"
+            },
+            {
+                "id": "TL091",
+                "status": "Under Repair",
+                "capacity": 115,
+                "coordinates": [
+                    {
+                        "lat": -8.006697,
+                        "lng": 108.10348
+                    },
+                    {
+                        "lat": -7.937247,
+                        "lng": 108.1575
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2023-01-08"
+            },
+            {
+                "id": "TL092",
+                "status": "Operational",
+                "capacity": 207,
+                "coordinates": [
+                    {
+                        "lat": -8.807647,
+                        "lng": 124.764539
+                    },
+                    {
+                        "lat": -8.768839,
+                        "lng": 124.668124
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2022-08-15"
+            },
+            {
+                "id": "TL093",
+                "status": "Under Repair",
+                "capacity": 186,
+                "coordinates": [
+                    {
+                        "lat": -1.448763,
+                        "lng": 98.596434
+                    },
+                    {
+                        "lat": -1.351544,
+                        "lng": 98.671766
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-08-27"
+            },
+            {
+                "id": "TL094",
+                "status": "Under Repair",
+                "capacity": 249,
+                "coordinates": [
+                    {
+                        "lat": 4.933112,
+                        "lng": 129.793384
+                    },
+                    {
+                        "lat": 4.958652,
+                        "lng": 129.81198
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2021-09-22"
+            },
+            {
+                "id": "TL095",
+                "status": "Under Repair",
+                "capacity": 177,
+                "coordinates": [
+                    {
+                        "lat": -1.86041,
+                        "lng": 118.290484
+                    },
+                    {
+                        "lat": -1.828581,
+                        "lng": 118.288805
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2023-12-24"
+            },
+            {
+                "id": "TL096",
+                "status": "Offline",
+                "capacity": 118,
+                "coordinates": [
+                    {
+                        "lat": 5.923417,
+                        "lng": 109.542572
+                    },
+                    {
+                        "lat": 6.017734,
+                        "lng": 109.558865
+                    }
+                ],
+                "voltage": "275kV",
+                "lastInspection": "2020-06-11"
+            },
+            {
+                "id": "TL097",
+                "status": "Operational",
+                "capacity": 201,
+                "coordinates": [
+                    {
+                        "lat": -0.876865,
+                        "lng": 102.18409
+                    },
+                    {
+                        "lat": -0.90099,
+                        "lng": 102.266515
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2022-10-15"
+            },
+            {
+                "id": "TL098",
+                "status": "Operational",
+                "capacity": 136,
+                "coordinates": [
+                    {
+                        "lat": -6.000249,
+                        "lng": 95.457426
+                    },
+                    {
+                        "lat": -5.988883,
+                        "lng": 95.47302
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2021-02-28"
+            },
+            {
+                "id": "TL099",
+                "status": "Under Repair",
+                "capacity": 156,
+                "coordinates": [
+                    {
+                        "lat": -9.001806,
+                        "lng": 109.937522
+                    },
+                    {
+                        "lat": -8.902548,
+                        "lng": 109.9656
+                    }
+                ],
+                "voltage": "400kV",
+                "lastInspection": "2020-03-26"
+            },
+            {
+                "id": "TL100",
+                "status": "Under Repair",
+                "capacity": 128,
+                "coordinates": [
+                    {
+                        "lat": -6.502697,
+                        "lng": 108.034829
+                    },
+                    {
+                        "lat": -6.508422,
+                        "lng": 107.962338
+                    }
+                ],
+                "voltage": "150kV",
+                "lastInspection": "2023-11-25"
+            }
+        ]
+    }
+}
