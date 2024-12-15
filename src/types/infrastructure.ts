@@ -1,34 +1,53 @@
-export type Status = 'Abandoned' | 'Operational' | 'Development' | 'Proposal';
+// ! Location Data
+export interface LocationData {
+    latitude: number;
+    longitude: number;
+    regionName?: string;
+}
 
-export interface BaseInfrastructure {
+// ! Databases
+
+// * Custom Types
+export type Status = 'Abandoned' | 'Operational' | 'Development' | 'Proposal';
+export type ProjectType = 'infrastructure' | 'education' | 'healthcare' | 'housing' | 'other';
+
+export interface Road {
     id: string;
     name: string;
     status: Status;
     coordinates: { lat: number; lng: number }[];
     lastMaintenance: string; // ISO date string
     nextMaintenance: string; // ISO date string
-}
-
-export interface Road extends BaseInfrastructure {
     trafficDensity: number; // Percentage
 }
 
-export interface Pipeline extends BaseInfrastructure {
+export interface Pipeline {
+    id: string;
+    name: string;
+    status: Status;
+    coordinates: { lat: number; lng: number }[];
+    lastMaintenance: string; // ISO date string
+    nextMaintenance: string; // ISO date string
     pressure: number; // PSI
-    flow_rate: number; // m³/h
 }
 
-export interface Substation extends BaseInfrastructure {
+export interface Substation {
+    id: string;
+    name: string;
+    status: Status;
+    coordinates: { lat: number; lng: number }[];
     capacity: number; // MW
     voltage: number; // kV
 }
 
-export interface TransmissionLine extends BaseInfrastructure {
+export interface TransmissionLine {
+    id: string;
+    name: string;
+    status: Status;
+    coordinates: { lat: number; lng: number }[];
     capacity: number; // MW
     voltage: number; // kV
 }
-
-export type ProjectType = 'infrastructure' | 'education' | 'healthcare' | 'housing' | 'other';
 
 export interface GovernmentProject {
     id: string;
@@ -65,9 +84,44 @@ export interface GovernmentProjectsData {
     big_projects: GovernmentProject[];
 }
 
+// * Welfare Data
+export interface WelfareProgram {
+    nama: string,
+    latitude: string,
+    longitude: string,
+    kelurahan: string,
+    kecamatan: string,
+    status_lahan: string,
+    status_bangunan: string,
+    luas_bangunan: string,
+    jenis_lantai: string,
+    jenis_dinding: string,
+    kondisi_dinding: string,
+    jenis_atap: string,
+    kondisi_atap: string,
+    kamar: string,
+    sumber_air: string,
+    memperoleh_air: string,
+    sumber_penerangan: string,
+    daya_terpasang: string,
+    bahan_bakar: string,
+    fasilitas_bab: string,
+    jenis_kloset: string,
+    tpa_kloset: string,
+    smartphone: string,
+    televisi: string,
+    komputer: string,
+    internet: string
+}
+
+export interface WelfareProgramsData {
+    programs: WelfareProgram[];
+}
+
 export interface InfrastructureData {
     roads?: RoadInfrastructureData;
     water?: WaterInfrastructureData;
     power?: PowerInfrastructureData;
     government?: GovernmentProjectsData;
+    welfare?: WelfareProgramsData;
 }

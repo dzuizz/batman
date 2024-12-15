@@ -4,7 +4,7 @@ import {
     RoadInfrastructureData,
     WaterInfrastructureData,
     PowerInfrastructureData,
-    Highway,
+    Road,
     Pipeline,
     Substation,
     TransmissionLine
@@ -19,37 +19,19 @@ interface InfrastructureStatus {
     metrics: Record<string, number | string>;
 }
 
-// Helper function to calculate distance between two coordinates
-function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
-    const R = 6371; // Earth's radius in km
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-}
-
-// Helper function to check if infrastructure is nearby (within 5km)
-function isNearby(latitude: number, longitude: number, infraLat: number, infraLon: number): boolean {
-    const distance = calculateDistance(latitude, longitude, infraLat, infraLon);
-    return distance <= 5; // 5km radius
-}
-
 export function generateInfrastructurePrompt(latitude: number, longitude: number, userQuestion: string): string {
     const infrastructureStatuses: InfrastructureStatus[] = [];
 
     // Process Roads
     const nearbyRoads = getNearbyInfrastructure('roads', latitude, longitude) as RoadInfrastructureData;
     if (nearbyRoads?.major_highways) {
-        nearbyRoads.major_highways.forEach((highway: Highway) => {
+        nearbyRoads.major_highways.forEach((highway: Road) => {
             infrastructureStatuses.push({
                 type: 'Highway',
                 name: highway.name,
                 status: highway.status,
                 lastMaintenance: highway.lastMaintenance,
+                nextMaintenance: highway.nextMaintenance,
                 metrics: {
                     trafficDensity: highway.trafficDensity,
                 }
@@ -65,6 +47,8 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 type: 'Water Pipeline',
                 name: pipeline.name,
                 status: pipeline.status,
+                lastMaintenance: pipeline.lastMaintenance,
+                nextMaintenance: pipeline.nextMaintenance,
                 metrics: {
                     pressure: pipeline.pressure,
                     flowRate: pipeline.flow_rate,
@@ -81,6 +65,8 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 type: 'Power Substation',
                 name: substation.name,
                 status: substation.status,
+                lastMaintenance: substation.lastMaintenance,
+                nextMaintenance: substation.nextMaintenance,
                 metrics: {
                     capacity: substation.capacity,
                     voltage: substation.voltage,
@@ -95,7 +81,8 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
                 type: 'Power Transmission Line',
                 name: `Line ${line.id}`,
                 status: line.status,
-                lastMaintenance: line.lastInspection,
+                lastMaintenance: line.lastMaintenance,
+                nextMaintenance: line.nextMaintenance,
                 metrics: {
                     capacity: line.capacity,
                     voltage: line.voltage,

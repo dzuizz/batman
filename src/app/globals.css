@@ -66,6 +66,11 @@ body {
   * {
     @apply border-border;
   }
+  
+  :focus-visible {
+    @apply outline-none ring-2 ring-violet-600 ring-offset-2 ring-offset-white dark:ring-offset-black;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

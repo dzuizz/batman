@@ -2,8 +2,9 @@ import roadsData from '@/../public/data/roads.json';
 import waterData from '@/../public/data/water.json';
 import powerData from '@/../public/data/power.json';
 import governmentData from '@/../public/data/government.json';
+import welfareData from '@/../private/data/welfare.json';
+
 import {
-    InfrastructureData,
     Road,
     Pipeline,
     Substation,
@@ -14,7 +15,9 @@ import {
     RoadInfrastructureData,
     WaterInfrastructureData,
     PowerInfrastructureData,
-    GovernmentProjectsData
+    GovernmentProjectsData,
+    WelfareProgramsData,
+    WelfareProgram
 } from '@/types/infrastructure';
 
 class InfrastructureError extends Error {
@@ -24,36 +27,12 @@ class InfrastructureError extends Error {
     }
 }
 
-// Validation functions
-function validateCoordinates(lat: number, lng: number): void {
-    if (lat === undefined || lng === undefined || isNaN(lat) || isNaN(lng)) {
-        throw new InfrastructureError('Invalid coordinates');
-    }
-    if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
-        throw new InfrastructureError('Coordinates out of range');
-    }
-}
-
-function validateRadius(radius: number): void {
-    if (radius <= 0 || isNaN(radius)) {
-        throw new InfrastructureError('Radius must be positive');
-    }
-}
-
-// Utility type for infrastructure data returns
-type InfrastructureReturn = {
-    roads: RoadInfrastructureData;
-    water: WaterInfrastructureData;
-    power: PowerInfrastructureData;
-    government: GovernmentProjectsData;
-}
-
 // Main functions
-export function getInfrastructureData(type: keyof InfrastructureData): InfrastructureReturn[keyof InfrastructureReturn] {
+export function getInfrastructureData(type: keyof InfrastructureReturn): InfrastructureReturn[keyof InfrastructureReturn] {
     try {
         switch (type) {
             case 'roads':
-                if (!roadsData?.major_highways) {
+                if (!roadsData?.major_highways || !roadsData?.arterial_roads) {
                     throw new InfrastructureError('Invalid roads data structure');
                 }
                 return {
@@ -69,7 +48,7 @@ export function getInfrastructureData(type: keyof InfrastructureData): Infrastru
                     }))
                 };
             case 'water':
-                if (!waterData?.main_pipelines) {
+                if (!waterData?.main_pipelines || !waterData?.treatment_plants) {
                     throw new InfrastructureError('Invalid water data structure');
                 }
                 return {
@@ -120,6 +99,15 @@ export function getInfrastructureData(type: keyof InfrastructureData): Infrastru
                         coordinates: validateCoordinatesArray(p.coordinates)
                     }))
                 };
+            case 'welfare':
+                if (!welfareData?.programs) {
+                    throw new InfrastructureError('Invalid welfare data structure');
+                }
+                return {
+                    programs: welfareData.programs.map((p: Welfare) => ({
+                        ...p
+                    }))
+                };
             default:
                 throw new InfrastructureError(`Unsupported infrastructure type: ${type}`);
         }
@@ -130,7 +118,7 @@ export function getInfrastructureData(type: keyof InfrastructureData): Infrastru
 }
 
 export function getNearbyInfrastructure(
-    type: keyof InfrastructureData,
+    type: keyof InfrastructureReturn,
     latitude: number,
     longitude: number,
     radius: number = 50 // km
@@ -202,6 +190,14 @@ export function getNearbyInfrastructure(
                     small_projects: govData.small_projects.filter(filterByDistance)
                 };
             }
+            case 'welfare': {
+                const welfareData = data as WelfareData;
+                return {
+                    programs: welfareData.programs?.filter(program =>
+                        isPointInRadius(parseFloat(program.latitude), parseFloat(program.longitude))
+                    )
+                } as WelfareData;
+            }
             default:
                 throw new InfrastructureError(`Unsupported infrastructure type: ${type}`);
         }
@@ -209,6 +205,31 @@ export function getNearbyInfrastructure(
         console.error('Error getting nearby infrastructure:', error);
         throw error instanceof InfrastructureError ? error : new InfrastructureError('Failed to get nearby infrastructure');
     }
+}
+
+// Validation functions
+function validateCoordinates(lat: number, lng: number): void {
+    if (lat === undefined || lng === undefined || isNaN(lat) || isNaN(lng)) {
+        throw new InfrastructureError('Invalid coordinates');
+    }
+    if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+        throw new InfrastructureError('Coordinates out of range');
+    }
+}
+
+function validateRadius(radius: number): void {
+    if (radius <= 0 || isNaN(radius)) {
+        throw new InfrastructureError('Radius must be positive');
+    }
+}
+
+// Utility type for infrastructure data returns
+type InfrastructureReturn = {
+    roads: RoadInfrastructureData;
+    water: WaterInfrastructureData;
+    power: PowerInfrastructureData;
+    government: GovernmentProjectsData;
+    welfare: WelfareData;
 }
 
 // Validation helper functions
@@ -230,21 +251,6 @@ function validateProjectType(type: unknown): ProjectType {
         throw new InfrastructureError(`Invalid project type: ${type}`);
     }
     return type as ProjectType;
-}
-
-// TODO: Replace all buildings with single coordinates / create location object and use this function
-function validateLocation(location: unknown): { lat: number; lng: number } {
-    if (!location || typeof location !== 'object') {
-        throw new InfrastructureError('Invalid location object');
-    }
-
-    const loc = location as { lat?: number; lng?: number };
-    if (typeof loc.lat !== 'number' || typeof loc.lng !== 'number') {
-        throw new InfrastructureError('Invalid location coordinates');
-    }
-
-    validateCoordinates(loc.lat, loc.lng);
-    return { lat: loc.lat, lng: loc.lng };
 }
 
 function validateCoordinatesArray(coordinates: unknown): { lat: number; lng: number }[] {

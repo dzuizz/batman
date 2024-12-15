@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { generateInfrastructurePrompt } from '@/utils/promptGenerator';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import OpenAI from 'openai';
 import { v4 as uuidv4 } from 'uuid';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
 
@@ -109,7 +108,7 @@ class BilingualTextProcessor {
             }
 
             const previous = merged[merged.length - 1];
-            if (previous.language === current.language) {
+            if (previous && previous.language === current.language) {
                 previous.text += current.text;
                 return merged;
             }
@@ -155,7 +154,7 @@ class TTS {
 
                 this.currentSynthesizer.speakTextAsync(
                     combinedText,
-                    result => {
+                    () => {
                         resolve();
                     },
                     error => {
@@ -176,12 +175,6 @@ class TTS {
         }
     }
 }
-
-// Initialize OpenAI client
-const openai = new OpenAI({
-    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true
-});
 
 interface Message {
     id: string;
@@ -241,7 +234,7 @@ export const AIChatbot = () => {
                 tts.stop();
             }
         };
-    }, [isOpen]);
+    }, [isOpen, tts]);
 
     useEffect(() => {
         const existingSessionId = localStorage.getItem('chatSessionId');
@@ -375,16 +368,22 @@ export const AIChatbot = () => {
             <Button
                 onClick={() => setIsOpen(!isOpen)}
                 className="rounded-full w-14 h-14 bg-violet-400 hover:bg-violet-500 text-white shadow-xl transition-all duration-200 ease-in-out transform hover:scale-105"
+                aria-label={isOpen ? "Close chat assistant" : "Open chat assistant"}
+                aria-expanded={isOpen}
             >
                 {isOpen ?
-                    <X className="w-6 h-6 text-white" /> :
-                    <MessageSquare className="w-6 h-6 text-white" />
+                    <X className="w-6 h-6 text-white" aria-hidden="true" /> :
+                    <MessageSquare className="w-6 h-6 text-white" aria-hidden="true" />
                 }
             </Button>
 
             {/* Chat Window */}
             {isOpen && (
-                <div className="absolute bottom-20 right-0 w-[450px] h-[85vh] bg-white dark:bg-black rounded-2xl shadow-2xl flex flex-col border border-violet-200 transition-all duration-200 ease-in-out">
+                <div
+                    className="absolute bottom-20 right-0 w-[450px] h-[85vh] bg-white dark:bg-black rounded-2xl shadow-2xl flex flex-col border border-violet-200 transition-all duration-200 ease-in-out"
+                    role="dialog"
+                    aria-label="AI Chat Assistant"
+                >
                     {/* Header */}
                     <div className="p-6 border-b border-violet-200 flex justify-between items-center">
                         <div>
@@ -421,7 +420,7 @@ export const AIChatbot = () => {
                                         <ReactMarkdown
                                             remarkPlugins={[remarkGfm]}
                                             components={{
-                                                code({ node, inline, className, children, ...props }) {
+                                                code({ inline, className, children, ...props }) {
                                                     return (
                                                         <code
                                                             className={`${className} ${inline
@@ -470,13 +469,15 @@ export const AIChatbot = () => {
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Ask about city insights..."
                                 className="flex-1 rounded-xl border border-violet-200 bg-white dark:bg-black p-4 text-violet-950 dark:text-violet-50 focus:outline-none focus:ring-2 focus:ring-violet-600 placeholder-violet-400 dark:placeholder-violet-200"
+                                aria-label="Chat message input"
                             />
                             <Button
                                 type="submit"
                                 disabled={isLoading}
                                 className="rounded-xl bg-violet-400 hover:bg-violet-500 text-white px-6 transition-all duration-200 ease-in-out transform hover:scale-105"
+                                aria-label="Send message"
                             >
-                                <Send className="w-5 h-5 text-white" />
+                                <Send className="w-5 h-5 text-white" aria-hidden="true" />
                             </Button>
                         </form>
                     </div>

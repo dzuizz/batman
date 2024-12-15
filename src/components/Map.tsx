@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import L, { Map as LeafletMap } from 'leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { InfrastructureData } from '@/types/infrastructure';
 import { Card } from './ui/card';
@@ -44,12 +44,13 @@ const Map = ({ center, infrastructureData }: MapProps) => {
     const mapRef = useRef<L.Map | null>(null);
 
     useEffect(() => {
-        if (mapRef.current)
+        if (mapRef.current) {
             mapRef.current.remove();
+        }
 
-        const container = L.DomUtil.get('map') as any;
-        if (container != null) {
-            container._leaflet_id = null;
+        const container = L.DomUtil.get('map') as HTMLElement;
+        if (container) {
+            (container as unknown as { _leaflet_id: null })._leaflet_id = null;
         }
 
         const map = L.map('map', {

@@ -3,6 +3,7 @@
 import LocationLoadingScreen from '@/components/LocationLoadingScreen';
 import Dashboard from '@/components/Dashboard';
 import { useLocation } from '@/context/LocationContext';
+
 function DashboardContent() {
     const { location, isLoading, error } = useLocation();
 
@@ -11,7 +12,7 @@ function DashboardContent() {
     }
 
     if (error) {
-        return null; // Error is handled in LocationLoadingScreen
+        return null;
     }
 
     if (!location) {
@@ -22,7 +23,5 @@ function DashboardContent() {
 }
 
 export default function DashboardPage() {
-    return (
-        <DashboardContent />
-    );
+    return <DashboardContent />;
 }
