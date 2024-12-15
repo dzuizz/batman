@@ -6,7 +6,26 @@ import 'leaflet/dist/leaflet.css';
 import { InfrastructureData } from '@/types/infrastructure';
 import { Card } from './ui/card';
 
-const icon = L.icon({
+// Define different icons for different infrastructure types
+const createIcon = (color: string) => L.icon({
+    iconUrl: `data:image/svg+xml,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" width="24" height="24">
+            <circle cx="12" cy="12" r="10" />
+        </svg>
+    `)}`,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -12],
+});
+
+const icons = {
+    road: createIcon('#3B82F6'),     // blue
+    water: createIcon('#06B6D4'),    // cyan
+    power: createIcon('#F59E0B'),    // amber
+    government: createIcon('#10B981') // emerald
+};
+
+const userIcon = L.icon({
     iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
     iconRetinaUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
     shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
@@ -43,11 +62,59 @@ const Map = ({ center, infrastructureData }: MapProps) => {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Add marker with popup
-        L.marker(center, { icon })
+        // Add user location marker
+        L.marker(center, { icon: userIcon })
             .addTo(map)
             .bindPopup('<span class="text-black">Anda di sini</span>')
             .openPopup();
+
+        // Add infrastructure markers
+        if (infrastructureData) {
+            // Add road infrastructure
+            if (infrastructureData.roads) {
+                [...infrastructureData.roads.major_highways, ...infrastructureData.roads.arterial_roads].forEach(road => {
+                    road.coordinates.forEach(coord => {
+                        L.marker([coord.lat, coord.lng], { icon: icons.road })
+                            .addTo(map)
+                            .bindPopup(`<div class="text-black">
+                                <b>${road.name}</b><br/>
+                                Status: ${road.status}<br/>
+                                Traffic: ${road.trafficDensity}%
+                            </div>`);
+                    });
+                });
+            }
+
+            // Add water infrastructure
+            if (infrastructureData.water) {
+                [...infrastructureData.water.main_pipelines, ...infrastructureData.water.treatment_plants].forEach(pipeline => {
+                    pipeline.coordinates.forEach(coord => {
+                        L.marker([coord.lat, coord.lng], { icon: icons.water })
+                            .addTo(map)
+                            .bindPopup(`<div class="text-black">
+                                <b>${pipeline.name}</b><br/>
+                                Status: ${pipeline.status}<br/>
+                                Pressure: ${pipeline.pressure} PSI
+                            </div>`);
+                    });
+                });
+            }
+
+            // Add power infrastructure
+            if (infrastructureData.power) {
+                [...infrastructureData.power.substations, ...infrastructureData.power.transmission_lines].forEach(power => {
+                    power.coordinates.forEach(coord => {
+                        L.marker([coord.lat, coord.lng], { icon: icons.power })
+                            .addTo(map)
+                            .bindPopup(`<div class="text-black">
+                                <b>${power.name}</b><br/>
+                                Status: ${power.status}<br/>
+                                Capacity: ${power.capacity} MW
+                            </div>`);
+                    });
+                });
+            }
+        }
 
         mapRef.current = map;
 

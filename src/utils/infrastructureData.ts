@@ -133,7 +133,7 @@ export function getNearbyInfrastructure(
     type: keyof InfrastructureData,
     latitude: number,
     longitude: number,
-    radius: number = 100 // km
+    radius: number = 50 // km
 ): InfrastructureReturn[keyof InfrastructureReturn] {
     try {
         validateCoordinates(latitude, longitude);
