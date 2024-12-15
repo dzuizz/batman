@@ -125,7 +125,7 @@ export function getWelfareData(type: keyof WelfareReturn): WelfareReturn[keyof W
     }
 }
 
-export function getNearbyWelfareData(latitude: number, longitude: number, radius: number = 500): WelfareProgramsData {
+export function getNearbyWelfareData(latitude: number, longitude: number, radius: number = 1): WelfareProgramsData {
     try {
         validateCoordinates(latitude, longitude);
         validateRadius(radius);
