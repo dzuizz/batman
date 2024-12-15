@@ -22,7 +22,8 @@ const icons = {
     road: createIcon('#3B82F6'),     // blue
     water: createIcon('#06B6D4'),    // cyan
     power: createIcon('#F59E0B'),    // amber
-    government: createIcon('#10B981') // emerald
+    government: createIcon('#10B981'), // emerald
+    welfare: createIcon('#EC4899')    // pink
 };
 
 const userIcon = L.icon({
@@ -38,9 +39,10 @@ const userIcon = L.icon({
 interface MapProps {
     center: [number, number];
     infrastructureData: InfrastructureData | null;
+    welfareData?: WelfareProgramsData | null;
 }
 
-const Map = ({ center, infrastructureData }: MapProps) => {
+const Map = ({ center, infrastructureData, welfareData }: MapProps) => {
     const mapRef = useRef<L.Map | null>(null);
 
     useEffect(() => {
@@ -101,18 +103,53 @@ const Map = ({ center, infrastructureData }: MapProps) => {
                 });
             }
 
-            // Add power infrastructure
-            if (infrastructureData.power) {
-                [...infrastructureData.power.substations, ...infrastructureData.power.transmission_lines].forEach(power => {
-                    power.coordinates.forEach(coord => {
-                        L.marker([coord.lat, coord.lng], { icon: icons.power })
+            // // Add power infrastructure
+            // if (infrastructureData.power) {
+            //     [...infrastructureData.power.substations, ...infrastructureData.power.transmission_lines].forEach(power => {
+            //         power.coordinates.forEach(coord => {
+            //             L.marker([coord.lat, coord.lng], { icon: icons.power })
+            //                 .addTo(map)
+            //                 .bindPopup(`<div class="text-black">
+            //                     <b>${power.name}</b><br/>
+            //                     Status: ${power.status}<br/>
+            //                     Capacity: ${power.capacity} MW
+            //                 </div>`);
+            //         });
+            //     });
+            // }
+
+            // // Add power infrastructure
+            // if (infrastructureData.power) {
+            //     [...infrastructureData.power.substations, ...infrastructureData.power.transmission_lines].forEach(power => {
+            //         power.coordinates.forEach(coord => {
+            //             L.marker([coord.lat, coord.lng], { icon: icons.power })
+            //                 .addTo(map)
+            //                 .bindPopup(`<div class="text-black">
+            //                     <b>${power.name}</b><br/>
+            //                     Status: ${power.status}<br/>
+            //                     Capacity: ${power.capacity} MW
+            //                 </div>`);
+            //         });
+            //     });
+            // }
+
+            // Add welfare program markers
+            if (welfareData?.programs) {
+                welfareData.programs.forEach(program => {
+                    const lat = parseFloat(program.latitude);
+                    const lng = parseFloat(program.longitude);
+
+                    if (!isNaN(lat) && !isNaN(lng)) {
+                        L.marker([lat, lng], { icon: icons.welfare })
                             .addTo(map)
                             .bindPopup(`<div class="text-black">
-                                <b>${power.name}</b><br/>
-                                Status: ${power.status}<br/>
-                                Capacity: ${power.capacity} MW
-                            </div>`);
-                    });
+                    <b>${program.nama}</b><br/>
+                    Kelurahan: ${program.kelurahan}<br/>
+                    Kecamatan: ${program.kecamatan}<br/>
+                    Status Bangunan: ${program.status_bangunan}<br/>
+                    Luas Bangunan: ${program.luas_bangunan}
+                </div>`);
+                    }
                 });
             }
         }

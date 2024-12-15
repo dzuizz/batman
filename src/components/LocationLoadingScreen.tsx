@@ -16,37 +16,71 @@ const LocationLoadingScreen = () => {
                 return;
             }
 
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    const regionName = await getIndonesianRegion(
-                        position.coords.latitude,
-                        position.coords.longitude
-                    );
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 15000,        // 15 seconds timeout
+                maximumAge: 0,        // Force fresh location
+            };
 
-                    setLocation({
-                        latitude: position.coords.latitude,
-                        longitude: position.coords.longitude,
-                        regionName
-                    });
-                    setIsLoading(false);
-                },
-                (error) => {
+            let retryCount = 0;
+            const maxRetries = 3;
+
+            const attemptLocationFetch = () => {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        try {
+                            const regionName = await getIndonesianRegion(
+                                position.coords.latitude,
+                                position.coords.longitude
+                            );
+
+                            setLocation({
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude,
+                                regionName
+                            });
+                            setIsLoading(false);
+                        } catch (error) {
+                            console.error('Error fetching region information:', error);
+                            handleLocationError(new Error('Failed to get region information'));
+                        }
+                    },
+                    (error) => {
+                        if (retryCount < maxRetries) {
+                            retryCount++;
+                            setTimeout(attemptLocationFetch, 2000); // Retry after 2 seconds
+                            return;
+                        }
+                        handleLocationError(error);
+                    },
+                    options
+                );
+            };
+
+            const handleLocationError = (error: GeolocationPositionError | Error) => {
+                let errorMessage = 'An unknown error occurred';
+
+                if (error instanceof GeolocationPositionError) {
                     switch (error.code) {
                         case error.PERMISSION_DENIED:
-                            setError('Please allow location access to use this feature');
+                            errorMessage = 'Please allow location access to use this feature';
                             break;
                         case error.POSITION_UNAVAILABLE:
-                            setError('Location information is unavailable');
+                            errorMessage = 'Location information is temporarily unavailable. Please try again.';
                             break;
                         case error.TIMEOUT:
-                            setError('Location request timed out');
+                            errorMessage = 'Location request timed out. Please check your connection and try again';
                             break;
-                        default:
-                            setError('An unknown error occurred');
                     }
-                    setIsLoading(false);
+                } else {
+                    errorMessage = error.message;
                 }
-            );
+
+                setError(errorMessage);
+                setIsLoading(false);
+            };
+
+            attemptLocationFetch();
         };
 
         getLocation();

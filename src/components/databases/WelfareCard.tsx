@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Home } from "lucide-react"
-import { WelfareProgramsData } from "@/types/infrastructure"
+import { WelfareProgramsData } from "@/types/welfare"
 
 interface WelfareCardProps {
     data?: WelfareProgramsData
@@ -23,7 +23,7 @@ export default function WelfareCard({ data }: WelfareCardProps) {
                 <div className="space-y-4">
                     {data?.programs?.map((program) => (
                         <div
-                            key={program.nama}
+                            key={program.id}
                             className="border-b border-violet-200/30 dark:border-violet-800/30 pb-3"
                             role="article"
                             aria-label={`Program: ${program.nama}`}

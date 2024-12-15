@@ -1,20 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import { getNearbyInfrastructure } from '@/utils/infrastructureData';
+import { getNearbyInfrastructure } from '@/utils/data/infrastructureData';
 import {
     InfrastructureData,
     RoadInfrastructureData,
     WaterInfrastructureData,
     PowerInfrastructureData,
     GovernmentProjectsData,
-    WelfareProgramsData
 } from '@/types/infrastructure';
 
-interface UseInfrastructureDataParams {
+interface UseInfrastructureDataProps {
     latitude: number;
     longitude: number;
 }
 
-export function useInfrastructureData({ latitude, longitude }: UseInfrastructureDataParams) {
+const useInfrastructureData = ({ latitude, longitude }: UseInfrastructureDataProps) => {
     return useQuery({
         queryKey: ['infrastructure', latitude, longitude],
         queryFn: async (): Promise<InfrastructureData> => {
@@ -23,14 +22,12 @@ export function useInfrastructureData({ latitude, longitude }: UseInfrastructure
                 const water = getNearbyInfrastructure('water', latitude, longitude) as WaterInfrastructureData;
                 const power = getNearbyInfrastructure('power', latitude, longitude) as PowerInfrastructureData;
                 const government = getNearbyInfrastructure('government', latitude, longitude) as GovernmentProjectsData;
-                const welfare = getNearbyInfrastructure('welfare', latitude, longitude) as WelfareProgramsData;
 
                 return {
                     roads,
                     water,
                     power,
                     government,
-                    welfare,
                 };
             } catch {
                 throw new Error('Failed to fetch infrastructure data');
@@ -39,3 +36,5 @@ export function useInfrastructureData({ latitude, longitude }: UseInfrastructure
         enabled: Boolean(latitude && longitude),
     });
 }
+
+export default useInfrastructureData;

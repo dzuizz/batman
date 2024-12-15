@@ -1,4 +1,5 @@
-export const SYSTEM_PROMPT = `You are an AI assistant for the city of Samarinda, East Kalimantan, with expertise in urban infrastructure and smart city development. Communicate in Indonesian with a professional yet approachable tone.
+export const SYSTEM_PROMPT =
+    `You are an AI assistant for the city of Samarinda, East Kalimantan, with expertise in urban infrastructure and smart city development. Communicate in Indonesian with a professional yet approachable tone.
 
 Your role is to:
 - Help citizens and officials understand city infrastructure
@@ -21,6 +22,26 @@ When responding:
 4. Offer practical suggestions that benefit all citizens
 5. Keep responses helpful and informative`;
 
+export const CHAT_PROMPT = (latitude: number, longitude: number, allData: string[], userQuestion: string) => {
+    return `Lokasi: ${latitude}°N, ${longitude}°E
+
+Data Infrastruktur dan Kesejahteraan Terdekat:
+${allData.join('\n')}
+
+Pertanyaan Walikota kepada anda:
+"${userQuestion}"
+
+Berdasarkan data yang tersedia, berikut adalah analisis menyeluruh untuk mendukung pengambilan keputusan strategis Anda:
+1. Kondisi infrastruktur saat ini, termasuk potensi tantangan dan peluang.
+2. Kebutuhan masyarakat di sekitar lokasi terkait infrastruktur.
+3. Dampak terhadap penerima program kesejahteraan di area tersebut.
+4. Solusi praktis yang dapat diimplementasikan dengan mempertimbangkan keberlanjutan dan pemerataan.
+5. Integrasi rencana ini dengan pengembangan kota secara menyeluruh, termasuk dampak jangka panjang.
+
+Sebagai Walikota, keputusan Anda sangat penting. Saya akan memberikan jawaban yang lengkap dan profesional untuk mendukung kebijakan dan solusi terbaik bagi seluruh warga Kota Samarinda.`;
+}
+
+/*
 export const INFRASTRUCTURE_PROMPT = (latitude: number, longitude: number, infrastructureData: string, userQuestion: string) =>
     `Lokasi: ${latitude}°N, ${longitude}°E
 
@@ -44,3 +65,4 @@ export const ERROR_MESSAGES = {
     location: "Mohon maaf, layanan lokasi tidak tersedia. Harap aktifkan layanan lokasi untuk memberikan informasi yang lebih akurat guna mendukung keputusan strategis Anda.",
     network: "Mohon maaf, koneksi jaringan terputus. Mohon periksa koneksi internet Anda dan coba lagi agar kami dapat membantu dengan informasi yang relevan untuk Kota Samarinda."
 };
+*/

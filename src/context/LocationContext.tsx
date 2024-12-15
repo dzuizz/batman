@@ -1,7 +1,7 @@
 'use client';
 
 import { getIndonesianRegion } from '@/utils/geocoding';
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 // Types
 interface LocationData {
@@ -25,12 +25,31 @@ interface LocationContextType {
 // Context
 const LocationContext = createContext<LocationContextType | undefined>(undefined);
 
+const DEFAULT_LOCATION = {
+    latitude: -0.5021,  // Samarinda city center
+    longitude: 117.1536,
+    regionName: 'Samarinda'
+};
+
 // Provider
 export function LocationProvider({ children }: { children: ReactNode }) {
     const [location, setLocation] = useState<LocationData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [realLocation, setRealLocation] = useState<LocationData | null>(null);
+
+    useEffect(() => {
+        // If location fetch fails after 10 seconds, use default location
+        const timeoutId = setTimeout(() => {
+            if (!location && isLoading) {
+                setLocation(DEFAULT_LOCATION);
+                setIsLoading(false);
+                setError('Using default location: Samarinda city center');
+            }
+        }, 10000);
+
+        return () => clearTimeout(timeoutId);
+    }, [location, isLoading]);
 
     const setFakeLocation = async (lat: number, lng: number) => {
         const regionName = await getIndonesianRegion(lat, lng);

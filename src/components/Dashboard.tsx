@@ -5,18 +5,33 @@ import dynamic from 'next/dynamic';
 import { Loader2 } from 'lucide-react';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
+// Location
 import { useLocation } from '@/context/LocationContext';
-import { AIChatbot } from '@/components/AIChatbot';
-import { LocationHeader } from '@/components/LocationHeader';
-import { RoadInfrastructureCard } from '@/components/infrastructure/RoadInfrastructureCard';
-import { WaterInfrastructureCard } from '@/components/infrastructure/WaterInfrastructureCard';
-import { PowerInfrastructureCard } from '@/components/infrastructure/PowerInfrastructureCard';
-import { GovernmentProjectsCard } from '@/components/infrastructure/GovernmentProjectsCard';
-import { useInfrastructureData } from '@/hooks/useInfrastructureData';
-import { useNotification } from '@/context/NotificationContext';
-import WelfareCard from '@/components/infrastructure/WelfareCard';
-import { LocationFaker } from '@/components/LocationFaker';
+import { LocationFaker } from '@/components/helper/LocationFaker';
 
+// AI Chatbot
+import ChatBot from '@/components/ai/ChatBot';
+
+// Location Header
+import { LocationHeader } from '@/components/helper/LocationHeader';
+
+// Infrastructure Data
+import useInfrastructureData from '@/hooks/useInfrastructureData';
+import useWelfareData from '@/hooks/useWelfareData';
+
+// Notification Context
+import { useNotification } from '@/context/NotificationContext';
+
+// Infrastructure Cards
+import RoadInfrastructureCard from '@/components/databases/RoadInfrastructureCard';
+import WaterInfrastructureCard from '@/components/databases/WaterInfrastructureCard';
+import PowerInfrastructureCard from '@/components/databases/PowerInfrastructureCard';
+import GovernmentProjectsCard from '@/components/databases/GovernmentProjectsCard';
+
+// Welfare Cards
+import WelfareCard from '@/components/databases/WelfareCard';
+
+// Dynamic Map
 const Map = dynamic(() => import('./Map'), {
     ssr: false, loading: () => (
         <div className="h-[400px] w-full rounded-xl bg-gray-100 dark:bg-gray-800 animate-pulse" />
@@ -28,11 +43,17 @@ const Dashboard = () => {
     const { location } = useLocation();
     const [searchQuery, setSearchQuery] = useState('');
 
-    const { data: infrastructureData, isLoading, error } = useInfrastructureData({
+    const { data: infrastructureData, isLoading: isInfrastructureLoading, error: infrastructureError } = useInfrastructureData({
         latitude: location?.latitude ?? 0,
         longitude: location?.longitude ?? 0,
     });
 
+    const { data: welfareData, isLoading: isWelfareLoading, error: welfareError } = useWelfareData({
+        latitude: location?.latitude ?? 0,
+        longitude: location?.longitude ?? 0,
+    });
+
+    // Emergency Notifications
     useEffect(() => {
         if (!infrastructureData) return;
 
@@ -40,6 +61,14 @@ const Dashboard = () => {
             if (substation.status === 'Development' && substation.capacity < 20) {
                 showNotification(
                     `Low power capacity alert: ${substation.name} is operating at ${substation.capacity}MW`,
+                    'warning'
+                );
+            }
+        });
+        infrastructureData.power?.transmission_lines.forEach(line => {
+            if (line.status === 'Operational' && line.voltage < 200) {
+                showNotification(
+                    `Low voltage alert: ${line.name} at ${line.voltage}kV`,
                     'warning'
                 );
             }
@@ -53,9 +82,10 @@ const Dashboard = () => {
                 );
             }
         });
+
     }, [infrastructureData, showNotification]);
 
-    if (isLoading) {
+    if (isInfrastructureLoading || isWelfareLoading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 <Loader2 className="w-12 h-12 animate-spin text-violet-600 dark:text-violet-400" />
@@ -63,13 +93,14 @@ const Dashboard = () => {
         );
     }
 
-    if (error || !location) {
+    if (infrastructureError || welfareError || !location) {
         return (
             <div className="min-h-screen p-6">
                 <Alert variant="destructive">
                     <AlertTitle>Error</AlertTitle>
                     <AlertDescription>
-                        {error instanceof Error ? error.message : 'Failed to load dashboard data'}
+                        {infrastructureError instanceof Error ? infrastructureError.message : 'Failed to load infrastructure data'}<br />
+                        {welfareError instanceof Error ? welfareError.message : 'Failed to load welfare data'}
                     </AlertDescription>
                 </Alert>
             </div>
@@ -81,7 +112,7 @@ const Dashboard = () => {
         water: infrastructureData?.water?.main_pipelines?.filter(water => water.name.toLowerCase().includes(searchQuery.toLowerCase())) || [],
         power: infrastructureData?.power?.substations?.filter(power => power.name.toLowerCase().includes(searchQuery.toLowerCase())) || [],
         government: infrastructureData?.government?.big_projects?.filter(gov => gov.name.toLowerCase().includes(searchQuery.toLowerCase())) || [],
-        welfare: infrastructureData?.welfare?.programs?.filter(welfare => welfare.nama.toLowerCase().includes(searchQuery.toLowerCase())) || [],
+        welfare: welfareData?.programs?.filter(welfare => welfare.nama.toLowerCase().includes(searchQuery.toLowerCase())) || [],
     };
 
     return (
@@ -104,6 +135,7 @@ const Dashboard = () => {
                     <Map
                         center={[location.latitude, location.longitude]}
                         infrastructureData={infrastructureData || null}
+                        welfareData={welfareData || null}
                     />
                 </div>
             )}
@@ -128,7 +160,7 @@ const Dashboard = () => {
                 <WelfareCard data={{ programs: filteredData.welfare }} />
             </div>
 
-            <AIChatbot />
+            <ChatBot />
         </div>
     );
 };

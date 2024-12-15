@@ -7,7 +7,7 @@ interface WaterInfrastructureCardProps {
     data?: WaterInfrastructureData;
 }
 
-export const WaterInfrastructureCard = ({ data }: WaterInfrastructureCardProps) => {
+const WaterInfrastructureCard = ({ data }: WaterInfrastructureCardProps) => {
     const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -89,3 +89,5 @@ export const WaterInfrastructureCard = ({ data }: WaterInfrastructureCardProps) 
         </Card>
     );
 };
+
+export default WaterInfrastructureCard;

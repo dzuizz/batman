@@ -7,7 +7,7 @@ interface GovernmentProjectsCardProps {
     data?: GovernmentProjectsData;
 }
 
-export const GovernmentProjectsCard = ({ data }: GovernmentProjectsCardProps) => {
+const GovernmentProjectsCard = ({ data }: GovernmentProjectsCardProps) => {
     const formatBudget = (budget: number) => {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -135,3 +135,5 @@ export const GovernmentProjectsCard = ({ data }: GovernmentProjectsCardProps) =>
         </Card>
     );
 };
+
+export default GovernmentProjectsCard;

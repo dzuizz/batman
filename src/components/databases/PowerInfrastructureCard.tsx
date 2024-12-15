@@ -7,7 +7,7 @@ interface PowerInfrastructureCardProps {
     data?: PowerInfrastructureData;
 }
 
-export const PowerInfrastructureCard = ({ data }: PowerInfrastructureCardProps) => {
+const PowerInfrastructureCard = ({ data }: PowerInfrastructureCardProps) => {
     const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -107,3 +107,5 @@ export const PowerInfrastructureCard = ({ data }: PowerInfrastructureCardProps) 
         </Card>
     );
 };
+
+export default PowerInfrastructureCard;

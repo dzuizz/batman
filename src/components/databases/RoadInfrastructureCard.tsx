@@ -7,7 +7,7 @@ interface RoadInfrastructureCardProps {
     data?: RoadInfrastructureData;
 }
 
-export const RoadInfrastructureCard = ({ data }: RoadInfrastructureCardProps) => {
+const RoadInfrastructureCard = ({ data }: RoadInfrastructureCardProps) => {
     const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -95,3 +95,5 @@ export const RoadInfrastructureCard = ({ data }: RoadInfrastructureCardProps) =>
         </Card>
     );
 };
+
+export default RoadInfrastructureCard;

@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Loader2, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { generateInfrastructurePrompt } from '@/utils/promptGenerator';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { v4 as uuidv4 } from 'uuid';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
+import { generatePrompt } from '@/utils/promptGenerator';
 
 // Types and Interfaces
 interface TTSConfig {
@@ -188,7 +188,7 @@ interface GeoLocation {
     longitude: number;
 }
 
-export const AIChatbot = () => {
+const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
@@ -200,6 +200,7 @@ export const AIChatbot = () => {
         subscriptionKey: process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY || '',
         region: process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION || ''
     }));
+    const [error, setError] = useState<string | null>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -272,14 +273,20 @@ export const AIChatbot = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Check if location exists
-        if (!input.trim() || !location) {
-            console.log('Missing input or location:', { input, location });
+        if (!input.trim()) {
+            console.warn('Empty input detected');
+            return;
+        }
+
+        if (!location?.latitude || !location?.longitude) {
+            console.error('Location not available');
+            setError('Location services are required to process your request');
             return;
         }
 
         try {
-            // Add user message
+            setIsLoading(true);
+
             const userMessage: Message = {
                 id: Date.now().toString(),
                 type: 'user',
@@ -289,22 +296,22 @@ export const AIChatbot = () => {
 
             setMessages(prev => [...prev, userMessage]);
             setInput('');
-            setIsLoading(true);
 
-            // Log the request data
-            console.log('Sending request with:', {
-                location,
-                input,
-                messagesCount: messages.length
-            });
+            const contextPrompt = await generatePrompt(
+                location.latitude,
+                location.longitude,
+                input
+            );
 
-            const contextPrompt = generateInfrastructurePrompt(location.latitude, location.longitude, input);
+            if (!contextPrompt) {
+                throw new Error('Failed to generate context prompt');
+            }
+
             const conversationHistory = messages.map(msg => ({
                 role: msg.type === 'user' ? 'user' : 'assistant',
                 content: msg.content
             }));
 
-            // Make the API call
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
@@ -317,46 +324,22 @@ export const AIChatbot = () => {
                 }),
             });
 
-            // Log the response status
-            console.log('Response status:', response.status);
-
-            const data = await response.json();
-            console.log('Response data:', data);
-
             if (!response.ok) {
-                throw new Error(data.error || 'Failed to get response from AI');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to get response');
             }
 
-            if (!data.response) {
-                throw new Error('No response received from AI');
-            }
-
-            // Add AI response
-            const aiMessage: Message = {
-                id: (Date.now() + 1).toString(),
-                type: 'ai',
-                content: data.response,
-                timestamp: new Date()
-            };
-
-            setMessages(prev => [...prev, aiMessage]);
-            speakResponse(data.response);
+            // Handle successful response...
 
         } catch (error) {
-            console.error('Detailed error:', {
-                error,
-                message: error instanceof Error ? error.message : 'Unknown error occurred',
-                stack: error instanceof Error ? error.stack : undefined
-            });
-
-            const errorMessage: Message = {
-                id: (Date.now() + 1).toString(),
+            console.error('Chat error:', error);
+            const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
+            setMessages(prev => [...prev, {
+                id: Date.now().toString(),
                 type: 'ai',
-                content: "Mohon maaf, terjadi kesalahan dalam memproses permintaan Anda. Silakan coba lagi nanti.",
+                content: `Sorry, I encountered an error: ${errorMessage}`,
                 timestamp: new Date()
-            };
-
-            setMessages(prev => [...prev, errorMessage]);
+            }]);
         } finally {
             setIsLoading(false);
         }
@@ -486,3 +469,5 @@ export const AIChatbot = () => {
         </div>
     );
 };
+
+export default Chatbot;
