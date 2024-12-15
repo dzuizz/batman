@@ -113,7 +113,7 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
     if (nearbyWelfare?.programs) {
         nearbyWelfare.programs.forEach((program: WelfareProgram) => {
             infrastructureStatuses.push({
-                type: 'Welfare Program',
+                type: 'Warga Miskin',
                 name: program.nama,
                 status: program.status_lahan,
                 metrics: {}
