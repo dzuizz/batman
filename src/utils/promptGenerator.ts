@@ -7,7 +7,11 @@ import {
     Road,
     Pipeline,
     Substation,
-    TransmissionLine
+    TransmissionLine,
+    GovernmentProject,
+    GovernmentProjectsData,
+    WelfareProgram,
+    WelfareProgramsData
 } from '@/types/infrastructure';
 
 interface InfrastructureStatus {
@@ -91,6 +95,32 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
         });
     }
 
+    // Process Government Projects
+    const nearbyGovernment = getNearbyInfrastructure('government', latitude, longitude) as GovernmentProjectsData;
+    if (nearbyGovernment?.big_projects) {
+        nearbyGovernment.big_projects.forEach((project: GovernmentProject) => {
+            infrastructureStatuses.push({
+                type: 'Government Project',
+                name: project.name,
+                status: project.status,
+                metrics: {}
+            });
+        });
+    }
+
+    // Process Welfare Programs
+    const nearbyWelfare = getNearbyInfrastructure('welfare', latitude, longitude) as WelfareProgramsData;
+    if (nearbyWelfare?.programs) {
+        nearbyWelfare.programs.forEach((program: WelfareProgram) => {
+            infrastructureStatuses.push({
+                type: 'Welfare Program',
+                name: program.nama,
+                status: program.status_lahan,
+                metrics: {}
+            });
+        });
+    }
+
     const infrastructureData = infrastructureStatuses.length > 0
         ? infrastructureStatuses.map(infra =>
             `• ${infra.type} - ${infra.name}
@@ -101,5 +131,7 @@ export function generateInfrastructurePrompt(latitude: number, longitude: number
         ).join('\n')
         : 'Tidak ada infrastruktur kritis dalam radius 5km.';
 
-    return INFRASTRUCTURE_PROMPT(latitude, longitude, infrastructureData, userQuestion);
+    const prompt = INFRASTRUCTURE_PROMPT(latitude, longitude, infrastructureData, userQuestion);
+    console.log('Generated Prompt:', prompt);
+    return prompt;
 }

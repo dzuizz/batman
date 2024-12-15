@@ -29,6 +29,7 @@ export interface Pipeline {
     lastMaintenance: string; // ISO date string
     nextMaintenance: string; // ISO date string
     pressure: number; // PSI
+    flow_rate: number; // Flow rate in m³/s
 }
 
 export interface Substation {
@@ -36,6 +37,8 @@ export interface Substation {
     name: string;
     status: Status;
     coordinates: { lat: number; lng: number }[];
+    lastMaintenance: string; // ISO date string
+    nextMaintenance: string; // ISO date string
     capacity: number; // MW
     voltage: number; // kV
 }
@@ -45,6 +48,8 @@ export interface TransmissionLine {
     name: string;
     status: Status;
     coordinates: { lat: number; lng: number }[];
+    lastMaintenance: string; // ISO date string
+    nextMaintenance: string; // ISO date string
     capacity: number; // MW
     voltage: number; // kV
 }
