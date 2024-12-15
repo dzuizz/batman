@@ -15,6 +15,7 @@ import { GovernmentProjectsCard } from '@/components/infrastructure/GovernmentPr
 import { useInfrastructureData } from '@/hooks/useInfrastructureData';
 import { useNotification } from '@/context/NotificationContext';
 import WelfareCard from '@/components/infrastructure/WelfareCard';
+import { LocationFaker } from '@/components/LocationFaker';
 
 const Map = dynamic(() => import('./Map'), {
     ssr: false, loading: () => (
@@ -86,6 +87,9 @@ const Dashboard = () => {
     return (
         <div className="min-h-screen p-6">
             <LocationHeader location={location} />
+            <div className="mb-4">
+                <LocationFaker />
+            </div>
 
             <input
                 type="text"
