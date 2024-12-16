@@ -1,6 +1,6 @@
 import { Zap, CheckCircle, Calendar, Clock, AlertTriangle } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { getStatusColor } from '@/utils/statusColors';
+import getStatusColor from '@/utils/statusColors';
 import { PowerInfrastructureData } from '@/types/infrastructure';
 
 interface PowerInfrastructureCardProps {

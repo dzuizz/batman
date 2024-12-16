@@ -1,6 +1,6 @@
 import { Router, CheckCircle, Clock, Calendar } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { getStatusColor } from '@/utils/statusColors';
+import getStatusColor from '@/utils/statusColors';
 import { RoadInfrastructureData } from '@/types/infrastructure';
 
 interface RoadInfrastructureCardProps {

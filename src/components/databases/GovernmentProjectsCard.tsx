@@ -1,6 +1,6 @@
 import { Building2, CheckCircle, Calendar, DollarSign, Users, FileText } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { getStatusColor } from '@/utils/statusColors';
+import getStatusColor from '@/utils/statusColors';
 import { GovernmentProjectsData } from '@/types/infrastructure';
 
 interface GovernmentProjectsCardProps {
