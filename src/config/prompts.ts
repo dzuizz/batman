@@ -22,11 +22,12 @@ When responding:
 4. Offer practical suggestions that benefit all citizens
 5. Keep responses helpful and informative`;
 
-export const CHAT_PROMPT = (latitude: number, longitude: number, allData: string[], userQuestion: string) => {
+export const CHAT_PROMPT = (latitude: number, longitude: number, infrastructureData: string, welfareData: string, userQuestion: string) => {
     return `Lokasi: ${latitude}°N, ${longitude}°E
 
 Data Infrastruktur dan Kesejahteraan Terdekat:
-${allData.join('\n')}
+${infrastructureData}
+${welfareData}
 
 Pertanyaan Walikota kepada anda:
 "${userQuestion}"

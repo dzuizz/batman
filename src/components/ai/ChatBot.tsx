@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { v4 as uuidv4 } from 'uuid';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
 import { generatePrompt } from '@/utils/promptGenerator';
+import { useLocation } from '@/context/LocationContext';
 
 // Types and Interfaces
 interface TTSConfig {
@@ -183,18 +184,13 @@ interface Message {
     timestamp: Date;
 }
 
-interface GeoLocation {
-    latitude: number;
-    longitude: number;
-}
-
 const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const [location, setLocation] = useState<GeoLocation | null>(null);
+    const { location } = useLocation();
     const [sessionId, setSessionId] = useState<string>('');
     const [tts] = useState(() => new TTS({
         subscriptionKey: process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY || '',
@@ -209,15 +205,6 @@ const Chatbot = () => {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
-
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLocation({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            });
-        });
-    }, []);
 
     const clearSession = () => {
         if (!sessionId) return;
@@ -329,7 +316,16 @@ const Chatbot = () => {
                 throw new Error(errorData.message || 'Failed to get response');
             }
 
-            // Handle successful response...
+            const data = await response.json();
+            const aiMessage: Message = {
+                id: Date.now().toString(),
+                type: 'ai',
+                content: data.response,
+                timestamp: new Date()
+            };
+
+            setMessages(prev => [...prev, aiMessage]);
+            await speakResponse(data.response);
 
         } catch (error) {
             console.error('Chat error:', error);

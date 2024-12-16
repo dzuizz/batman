@@ -2,7 +2,8 @@ import { CHAT_PROMPT } from '@/config/prompts';
 import { getNearbyInfrastructure } from './data/infrastructureData';
 import { RoadInfrastructureData, WaterInfrastructureData, PowerInfrastructureData, Road, Pipeline, Substation, TransmissionLine, GovernmentProjectsData, GovernmentProject } from '@/types/infrastructure';
 import { WelfareProgramsData } from '@/types/welfare';
-import { getNearbyWelfareData } from '@/utils/data/welfareData';
+import useWelfareData from '@/hooks/useWelfareData';
+import { getNearbyWelfareData } from './data/welfareData';
 
 
 interface InfrastructureStatus {
@@ -16,10 +17,13 @@ interface InfrastructureStatus {
 
 export function generatePrompt(latitude: number, longitude: number, userQuestion: string): string {
     const infrastructureData = generateInfrastructureData(latitude, longitude);
-    const welfareData = generateWelfareData(latitude, longitude);
+    console.log('Infrastructure Data:', infrastructureData);
 
-    const prompt = CHAT_PROMPT(latitude, longitude, [infrastructureData, welfareData], userQuestion);
-    console.log('Generated Prompt:', prompt);
+    const welfareData = generateWelfareData(latitude, longitude);
+    console.log('Welfare Data:', welfareData);
+
+    const prompt = CHAT_PROMPT(latitude, longitude, infrastructureData, welfareData, userQuestion);
+    console.log('Final Prompt:', prompt);
     return prompt;
 }
 
@@ -159,36 +163,49 @@ ${infra.nextMaintenance ? `  Jadwal Pemeliharaan: ${infra.nextMaintenance}\n` : 
 }
 
 export function generateWelfareData(latitude: number, longitude: number): string {
-    const welfareStatuses = getNearbyWelfareData(latitude, longitude) as WelfareProgramsData;
+    try {
+        const welfareData = getNearbyWelfareData(latitude, longitude);
 
-    const welfareData = welfareStatuses?.programs?.length > 0 ? welfareStatuses?.programs?.map(program =>
-        `* ${program.nama}
-  Kelurahan: ${program.kelurahan}
-  Kecamatan: ${program.kecamatan}
-  Status Lahan: ${program.status_lahan}
-  Status Bangunan: ${program.status_bangunan}
-  Luas Bangunan: ${program.luas_bangunan}
-  Jenis Lantai: ${program.jenis_lantai}
-  Jenis Dinding: ${program.jenis_dinding}
-  Kondisi Dinding: ${program.kondisi_dinding}
-  Jenis Atap: ${program.jenis_atap}
-  Kondisi Atap: ${program.kondisi_atap}
-  Jumlah Kamar: ${program.kamar}
-  Sumber Air: ${program.sumber_air}
-  Cara Memperoleh Air: ${program.memperoleh_air}
-  Sumber Penerangan: ${program.sumber_penerangan}
-  Daya Terpasang: ${program.daya_terpasang}
-  Bahan Bakar: ${program.bahan_bakar}
-  Fasilitas BAB: ${program.fasilitas_bab}
-  Jenis Kloset: ${program.jenis_kloset}
-  TPA Kloset: ${program.tpa_kloset}
-  Smartphone: ${program.smartphone}
-  Televisi: ${program.televisi}
-  Komputer: ${program.komputer}
-  Internet: ${program.internet}`).join('\n\n')
-        : 'Tidak ada program kesejahteraan kritis dalam radius 5km.';
+        if (!welfareData?.programs?.length) {
+            return 'Tidak ada data kesejahteraan dalam radius 1km.';
+        }
 
-    return welfareData;
+        return welfareData.programs.map(program => {
+            const details = [
+                ['Lokasi', `${program.kelurahan}, ${program.kecamatan}`],
+                ['Status Hunian', `${program.status_lahan} - ${program.status_bangunan}`],
+                ['Kondisi Bangunan', [
+                    `Luas: ${program.luas_bangunan}`,
+                    `Lantai: ${program.jenis_lantai}`,
+                    `Dinding: ${program.jenis_dinding} (${program.kondisi_dinding})`,
+                    `Atap: ${program.jenis_atap} (${program.kondisi_atap})`,
+                    `Kamar: ${program.kamar}`
+                ].join(' | ')],
+                ['Utilitas', [
+                    `Air: ${program.sumber_air} (${program.memperoleh_air})`,
+                    `Listrik: ${program.sumber_penerangan} (${program.daya_terpasang})`,
+                    `Memasak: ${program.bahan_bakar}`
+                ].join(' | ')],
+                ['Sanitasi', [
+                    `Fasilitas: ${program.fasilitas_bab}`,
+                    `Kloset: ${program.jenis_kloset}`,
+                    `Pembuangan: ${program.tpa_kloset}`
+                ].join(' | ')],
+                ['Teknologi', [
+                    `Smartphone: ${program.smartphone}`,
+                    `TV: ${program.televisi}`,
+                    `Komputer: ${program.komputer}`,
+                    `Internet: ${program.internet}`
+                ].join(' | ')]
+            ];
+
+            return `* ${program.nama}\n${details.map(([category, value]) =>
+                `  ${category}: ${value}`).join('\n')}`;
+        }).join('\n\n');
+    } catch (error) {
+        console.error('Error generating welfare data:', error);
+        return 'Terjadi kesalahan dalam mengambil data kesejahteraan.';
+    }
 }
 
 // export function generateInfrastructurePrompt(latitude: number, longitude: number, userQuestion: string): string {

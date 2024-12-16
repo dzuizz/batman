@@ -144,24 +144,40 @@ export function getNearbyWelfareData(latitude: number, longitude: number, radius
                 Math.cos(lat1) * Math.cos(lat2Rad) *
                 Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
-            return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
         };
 
         const isPointInRadius = (lat: number, lng: number): boolean => {
-            return getDistance(lat, lng) <= radius;
+            const distance = getDistance(lat, lng);
+            console.log(`Distance for point (${lat}, ${lng}): ${distance}km`);
+            return distance <= radius;
         };
 
         const filterByDistance = (item: WelfareProgram): boolean => {
             try {
-                if (!item.latitude || !item.longitude) return false;
-                return isPointInRadius(Number(item.latitude), Number(item.longitude));
-            } catch {
+                if (!item.latitude || !item.longitude) {
+                    console.log('Missing coordinates for item:', item);
+                    return false;
+                }
+                const lat = parseFloat(item.latitude);
+                const lng = parseFloat(item.longitude);
+                if (isNaN(lat) || isNaN(lng)) {
+                    console.log('Invalid coordinates:', item.latitude, item.longitude);
+                    return false;
+                }
+                const inRadius = isPointInRadius(lat, lng);
+                console.log(`Item ${item.nama} is ${inRadius ? 'within' : 'outside'} radius`);
+                return inRadius;
+            } catch (error) {
+                console.error('Error filtering item:', error);
                 return false;
             }
         };
 
         return {
             programs: data.programs.filter(filterByDistance)
+            // programs: data.programs
         };
     } catch (error) {
         console.error('Error getting nearby welfare data:', error);
