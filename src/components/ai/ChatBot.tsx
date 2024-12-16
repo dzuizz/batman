@@ -266,13 +266,13 @@ const Chatbot = () => {
         }
 
         if (!location?.latitude || !location?.longitude) {
-            console.error('Location not available');
             setError('Location services are required to process your request');
             return;
         }
 
         try {
             setIsLoading(true);
+            setError(null);
 
             const userMessage: Message = {
                 id: Date.now().toString(),
@@ -294,29 +294,26 @@ const Chatbot = () => {
                 throw new Error('Failed to generate context prompt');
             }
 
-            const conversationHistory = messages.map(msg => ({
-                role: msg.type === 'user' ? 'user' : 'assistant',
-                content: msg.content
-            }));
-
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    messages: conversationHistory,
+                    messages: messages.map(msg => ({
+                        role: msg.type === 'user' ? 'user' : 'assistant',
+                        content: msg.content
+                    })),
                     contextPrompt,
                     sessionId,
                 }),
             });
+            const data = await response.json();
 
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Failed to get response');
+                throw new Error(data.message || 'Failed to get response');
             }
 
-            const data = await response.json();
             const aiMessage: Message = {
                 id: Date.now().toString(),
                 type: 'ai',
@@ -333,7 +330,7 @@ const Chatbot = () => {
             setMessages(prev => [...prev, {
                 id: Date.now().toString(),
                 type: 'ai',
-                content: `Sorry, I encountered an error: ${errorMessage}`,
+                content: `Maaf, terjadi kesalahan: ${errorMessage}`,
                 timestamp: new Date()
             }]);
         } finally {

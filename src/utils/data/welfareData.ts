@@ -78,7 +78,8 @@ function validateWelfareProgram(program: any): WelfareProgram | null {
         smartphone: program.smartphone || '',
         televisi: program.televisi || '',
         komputer: program.komputer || '',
-        internet: program.internet || ''
+        internet: program.internet || '',
+        id: program.id || Math.random()
     };
 }
 
